@@ -1,0 +1,704 @@
+{
+ "config": {
+  "dps_package": "chkwon/TSPDrone.jl (DPS / TSP-ep-all of Bogyrbayeva et al.) @ f42d27c0369dd0e8ed6fc719a1176a8131b1c3cf",
+  "hgatac_package": "Sasanm88/TSPDroneHGATAC.jl (HGA-TAC of Mahmoudinazlou & Kwon) @ 8f1f345c93ede2d7bb9345b18b6fe01880e133f8",
+  "julia": "1.10.4 (env status archived in julia_env_status.txt)",
+  "protocol": "identical nominal per-instance budgets (30/35/140/430s); single-threaded; JIT-warmed; complete default-settings runs launched until the deadline; HARD cutoff applied symmetrically in analysis (replicates finishing after the budget discarded on every side); tie tolerance 1e-09"
+ },
+ "per_size": {
+  "bench11": {
+   "count": 5,
+   "ours_mean": 222.30572108765745,
+   "dps": {
+    "mean": 222.51375501667366,
+    "wins": 1,
+    "losses": 0,
+    "ties": 4,
+    "ties_at_known_optimum": 3,
+    "ours_lower_pct": 0.08348802536727204,
+    "gap_pct": 0.28477770326381646
+   },
+   "hgatac": {
+    "mean": 222.30572108765745,
+    "wins": 0,
+    "losses": 0,
+    "ties": 5,
+    "ties_at_known_optimum": 4,
+    "ours_lower_pct": 0.0,
+    "gap_pct": 0.20093970444795045
+   },
+   "ours_gap_pct": 0.20093970444795045
+  },
+  "bench13": {
+   "count": 5,
+   "ours_mean": 253.47134499829448,
+   "dps": {
+    "mean": 255.58713841124717,
+    "wins": 1,
+    "losses": 0,
+    "ties": 4,
+    "ties_at_known_optimum": 3,
+    "ours_lower_pct": 0.7881635810275377,
+    "gap_pct": 0.8337474796901734
+   },
+   "hgatac": {
+    "mean": 253.47134499829448,
+    "wins": 0,
+    "losses": 0,
+    "ties": 5,
+    "ties_at_known_optimum": 4,
+    "ours_lower_pct": 0.0,
+    "gap_pct": 0.013249570131465629
+   },
+   "ours_gap_pct": 0.013249570131465629
+  },
+  "bench15": {
+   "count": 5,
+   "ours_mean": 255.764011075299,
+   "dps": {
+    "mean": 257.2136561877086,
+    "wins": 4,
+    "losses": 0,
+    "ties": 1,
+    "ties_at_known_optimum": 1,
+    "ours_lower_pct": 0.5305328530285013,
+    "gap_pct": 0.5370405689847969
+   },
+   "hgatac": {
+    "mean": 256.9159469504478,
+    "wins": 3,
+    "losses": 0,
+    "ties": 2,
+    "ties_at_known_optimum": 2,
+    "ours_lower_pct": 0.4225866080969415,
+    "gap_pct": 0.4287360831054833
+   },
+   "ours_gap_pct": 4.3692685391356825e-15
+  },
+  "bench17": {
+   "count": 5,
+   "ours_mean": 273.9870920821954,
+   "dps": {
+    "mean": 275.52442177393885,
+    "wins": 1,
+    "losses": 0,
+    "ties": 4,
+    "ties_at_known_optimum": 4,
+    "ours_lower_pct": 0.5487851730235779,
+    "gap_pct": 0.5642682762029703
+   },
+   "hgatac": {
+    "mean": 273.9870920821953,
+    "wins": 0,
+    "losses": 0,
+    "ties": 5,
+    "ties_at_known_optimum": 5,
+    "ours_lower_pct": -3.9690403922282925e-15,
+    "gap_pct": 0.0
+   },
+   "ours_gap_pct": 3.9690403922282925e-15
+  },
+  "n100": {
+   "count": 5,
+   "ours_mean": 5.17203844995121,
+   "dps": {
+    "mean": 5.339192350343083,
+    "wins": 5,
+    "losses": 0,
+    "ties": 0,
+    "ties_at_known_optimum": 0,
+    "ours_lower_pct": 3.127528872219685
+   },
+   "hgatac": {
+    "mean": 5.337303185063564,
+    "wins": 5,
+    "losses": 0,
+    "ties": 0,
+    "ties_at_known_optimum": 0,
+    "ours_lower_pct": 3.08584683961106
+   }
+  },
+  "n20": {
+   "count": 10,
+   "ours_mean": 2.5794043890178466,
+   "dps": {
+    "mean": 2.6217608130939096,
+    "wins": 5,
+    "losses": 0,
+    "ties": 5,
+    "ties_at_known_optimum": 0,
+    "ours_lower_pct": 1.5497920716512734
+   },
+   "hgatac": {
+    "mean": 2.626147509381842,
+    "wins": 7,
+    "losses": 1,
+    "ties": 2,
+    "ties_at_known_optimum": 0,
+    "ours_lower_pct": 1.676682880248555
+   }
+  },
+  "n50": {
+   "count": 10,
+   "ours_mean": 3.7212171453058915,
+   "dps": {
+    "mean": 3.8561296182682474,
+    "wins": 10,
+    "losses": 0,
+    "ties": 0,
+    "ties_at_known_optimum": 0,
+    "ours_lower_pct": 3.3579200736999226
+   },
+   "hgatac": {
+    "mean": 3.800917443334587,
+    "wins": 10,
+    "losses": 0,
+    "ties": 0,
+    "ties_at_known_optimum": 0,
+    "ours_lower_pct": 2.0480376675620353
+   }
+  }
+ },
+ "raw": [
+  {
+   "id": "bench-1-n11",
+   "opt": 221.18876576478925,
+   "ours": 223.41104602578844,
+   "dps": 223.41104602578844,
+   "hgatac": 223.41104602578844,
+   "runs": {
+    "ours": 3,
+    "dps": 1986,
+    "hgatac": 26
+   }
+  },
+  {
+   "id": "bench-2-n11",
+   "opt": 205.76050725572097,
+   "ours": 205.76050725572097,
+   "dps": 205.76050725572097,
+   "hgatac": 205.76050725572097,
+   "runs": {
+    "ours": 3,
+    "dps": 2410,
+    "hgatac": 24
+   }
+  },
+  {
+   "id": "bench-3-n11",
+   "opt": 192.96313461174037,
+   "ours": 192.96313461174037,
+   "dps": 192.96313461174037,
+   "hgatac": 192.96313461174037,
+   "runs": {
+    "ours": 3,
+    "dps": 1712,
+    "hgatac": 25
+   }
+  },
+  {
+   "id": "bench-4-n11",
+   "opt": 241.25592289521398,
+   "ours": 241.25592289521398,
+   "dps": 241.25592289521398,
+   "hgatac": 241.25592289521398,
+   "runs": {
+    "ours": 4,
+    "dps": 2217,
+    "hgatac": 28
+   }
+  },
+  {
+   "id": "bench-5-n11",
+   "opt": 248.1379946498235,
+   "ours": 248.1379946498235,
+   "dps": 249.17816429490466,
+   "hgatac": 248.1379946498235,
+   "runs": {
+    "ours": 3,
+    "dps": 2159,
+    "hgatac": 28
+   }
+  },
+  {
+   "id": "bench-1-n13",
+   "opt": 258.4513962016044,
+   "ours": 258.4513962016044,
+   "dps": 258.4513962016044,
+   "hgatac": 258.4513962016044,
+   "runs": {
+    "ours": 3,
+    "dps": 1207,
+    "hgatac": 17
+   }
+  },
+  {
+   "id": "bench-2-n13",
+   "opt": 249.90656921155318,
+   "ours": 249.90656921155318,
+   "dps": 249.90656921155318,
+   "hgatac": 249.90656921155318,
+   "runs": {
+    "ours": 3,
+    "dps": 1585,
+    "hgatac": 18
+   }
+  },
+  {
+   "id": "bench-3-n13",
+   "opt": 263.19577795091305,
+   "ours": 263.37013949682637,
+   "dps": 263.37013949682637,
+   "hgatac": 263.37013949682637,
+   "runs": {
+    "ours": 3,
+    "dps": 1727,
+    "hgatac": 15
+   }
+  },
+  {
+   "id": "bench-4-n13",
+   "opt": 257.86700834992354,
+   "ours": 257.86700834992354,
+   "dps": 268.44597541468704,
+   "hgatac": 257.86700834992354,
+   "runs": {
+    "ours": 3,
+    "dps": 2051,
+    "hgatac": 19
+   }
+  },
+  {
+   "id": "bench-5-n13",
+   "opt": 237.76161173156487,
+   "ours": 237.76161173156487,
+   "dps": 237.76161173156487,
+   "hgatac": 237.76161173156487,
+   "runs": {
+    "ours": 3,
+    "dps": 1584,
+    "hgatac": 19
+   }
+  },
+  {
+   "id": "bench-1-n15",
+   "opt": 260.19649903254805,
+   "ours": 260.1964990325481,
+   "dps": 260.95239642452304,
+   "hgatac": 260.1964990325481,
+   "runs": {
+    "ours": 3,
+    "dps": 1072,
+    "hgatac": 15
+   }
+  },
+  {
+   "id": "bench-2-n15",
+   "opt": 279.8748849328301,
+   "ours": 279.8748849328301,
+   "dps": 280.75731588232065,
+   "hgatac": 279.8748849328301,
+   "runs": {
+    "ours": 4,
+    "dps": 900,
+    "hgatac": 23
+   }
+  },
+  {
+   "id": "bench-3-n15",
+   "opt": 278.2501294150187,
+   "ours": 278.2501294150187,
+   "dps": 283.07106757744117,
+   "hgatac": 283.07106757744117,
+   "runs": {
+    "ours": 4,
+    "dps": 841,
+    "hgatac": 23
+   }
+  },
+  {
+   "id": "bench-4-n15",
+   "opt": 227.4927030824479,
+   "ours": 227.4927030824479,
+   "dps": 228.28166214060792,
+   "hgatac": 228.28166214060792,
+   "runs": {
+    "ours": 3,
+    "dps": 874,
+    "hgatac": 22
+   }
+  },
+  {
+   "id": "bench-5-n15",
+   "opt": 233.0058389136502,
+   "ours": 233.0058389136502,
+   "dps": 233.0058389136502,
+   "hgatac": 233.15562106881157,
+   "runs": {
+    "ours": 4,
+    "dps": 721,
+    "hgatac": 12
+   }
+  },
+  {
+   "id": "bench-1-n17",
+   "opt": 266.2365087055095,
+   "ours": 266.2365087055095,
+   "dps": 266.2365087055095,
+   "hgatac": 266.2365087055095,
+   "runs": {
+    "ours": 3,
+    "dps": 603,
+    "hgatac": 16
+   }
+  },
+  {
+   "id": "bench-2-n17",
+   "opt": 273.41911208801764,
+   "ours": 273.41911208801764,
+   "dps": 273.41911208801764,
+   "hgatac": 273.41911208801764,
+   "runs": {
+    "ours": 4,
+    "dps": 1149,
+    "hgatac": 17
+   }
+  },
+  {
+   "id": "bench-3-n17",
+   "opt": 271.3991811115878,
+   "ours": 271.3991811115878,
+   "dps": 271.3991811115878,
+   "hgatac": 271.3991811115878,
+   "runs": {
+    "ours": 3,
+    "dps": 708,
+    "hgatac": 21
+   }
+  },
+  {
+   "id": "bench-4-n17",
+   "opt": 286.43406588712025,
+   "ours": 286.4340658871203,
+   "dps": 286.43406588712025,
+   "hgatac": 286.43406588712025,
+   "runs": {
+    "ours": 3,
+    "dps": 539,
+    "hgatac": 13
+   }
+  },
+  {
+   "id": "bench-5-n17",
+   "opt": 272.44659261874176,
+   "ours": 272.44659261874176,
+   "dps": 280.1332410774593,
+   "hgatac": 272.44659261874176,
+   "runs": {
+    "ours": 3,
+    "dps": 469,
+    "hgatac": 15
+   }
+  },
+  {
+   "id": "uniform-n100-s0",
+   "opt": null,
+   "ours": 5.340446952593044,
+   "dps": 5.3555369995025615,
+   "hgatac": 5.465225691190619,
+   "runs": {
+    "ours": 3,
+    "dps": 6,
+    "hgatac": 20
+   }
+  },
+  {
+   "id": "uniform-n100-s1",
+   "opt": null,
+   "ours": 5.175116500135025,
+   "dps": 5.300671364604828,
+   "hgatac": 5.345960505750156,
+   "runs": {
+    "ours": 3,
+    "dps": 6,
+    "hgatac": 18
+   }
+  },
+  {
+   "id": "uniform-n100-s2",
+   "opt": null,
+   "ours": 5.254798024705541,
+   "dps": 5.528687903748923,
+   "hgatac": 5.537296719577989,
+   "runs": {
+    "ours": 3,
+    "dps": 5,
+    "hgatac": 16
+   }
+  },
+  {
+   "id": "uniform-n100-s3",
+   "opt": null,
+   "ours": 4.8656835070430695,
+   "dps": 5.0840471755089895,
+   "hgatac": 5.03223947761772,
+   "runs": {
+    "ours": 3,
+    "dps": 6,
+    "hgatac": 14
+   }
+  },
+  {
+   "id": "uniform-n100-s4",
+   "opt": null,
+   "ours": 5.22414726527937,
+   "dps": 5.427018308350115,
+   "hgatac": 5.3057935311813385,
+   "runs": {
+    "ours": 3,
+    "dps": 6,
+    "hgatac": 19
+   }
+  },
+  {
+   "id": "uniform-n20-s0",
+   "opt": null,
+   "ours": 2.7640543624790954,
+   "dps": 2.7640543624790954,
+   "hgatac": 2.78936484232078,
+   "runs": {
+    "ours": 2,
+    "dps": 391,
+    "hgatac": 11
+   }
+  },
+  {
+   "id": "uniform-n20-s1",
+   "opt": null,
+   "ours": 2.5493247434760815,
+   "dps": 2.665940907205957,
+   "hgatac": 2.665940907205957,
+   "runs": {
+    "ours": 2,
+    "dps": 418,
+    "hgatac": 16
+   }
+  },
+  {
+   "id": "uniform-n20-s2",
+   "opt": null,
+   "ours": 2.434329631297043,
+   "dps": 2.434329631297043,
+   "hgatac": 2.538806400112615,
+   "runs": {
+    "ours": 2,
+    "dps": 293,
+    "hgatac": 10
+   }
+  },
+  {
+   "id": "uniform-n20-s3",
+   "opt": null,
+   "ours": 2.5449838622544423,
+   "dps": 2.695471691550944,
+   "hgatac": 2.573839738180258,
+   "runs": {
+    "ours": 3,
+    "dps": 442,
+    "hgatac": 15
+   }
+  },
+  {
+   "id": "uniform-n20-s4",
+   "opt": null,
+   "ours": 2.2703670238471245,
+   "dps": 2.2703670238471245,
+   "hgatac": 2.2703670238471245,
+   "runs": {
+    "ours": 3,
+    "dps": 604,
+    "hgatac": 16
+   }
+  },
+  {
+   "id": "uniform-n20-s5",
+   "opt": null,
+   "ours": 2.761182245586311,
+   "dps": 2.7611822455863106,
+   "hgatac": 2.7588221356990514,
+   "runs": {
+    "ours": 3,
+    "dps": 260,
+    "hgatac": 13
+   }
+  },
+  {
+   "id": "uniform-n20-s6",
+   "opt": null,
+   "ours": 2.5833950168017585,
+   "dps": 2.6269482229840206,
+   "hgatac": 2.599755001116669,
+   "runs": {
+    "ours": 3,
+    "dps": 452,
+    "hgatac": 12
+   }
+  },
+  {
+   "id": "uniform-n20-s7",
+   "opt": null,
+   "ours": 2.751943815992245,
+   "dps": 2.8049115983739377,
+   "hgatac": 2.752156512160007,
+   "runs": {
+    "ours": 3,
+    "dps": 311,
+    "hgatac": 8
+   }
+  },
+  {
+   "id": "uniform-n20-s8",
+   "opt": null,
+   "ours": 2.188879725320268,
+   "dps": 2.188879725320268,
+   "hgatac": 2.188879725320268,
+   "runs": {
+    "ours": 3,
+    "dps": 411,
+    "hgatac": 15
+   }
+  },
+  {
+   "id": "uniform-n20-s9",
+   "opt": null,
+   "ours": 2.9455834631240987,
+   "dps": 3.0055227222943928,
+   "hgatac": 3.123542807855687,
+   "runs": {
+    "ours": 3,
+    "dps": 308,
+    "hgatac": 10
+   }
+  },
+  {
+   "id": "uniform-n50-s0",
+   "opt": null,
+   "ours": 4.159912919732967,
+   "dps": 4.395412802658134,
+   "hgatac": 4.280705436572905,
+   "runs": {
+    "ours": 3,
+    "dps": 42,
+    "hgatac": 9
+   }
+  },
+  {
+   "id": "uniform-n50-s1",
+   "opt": null,
+   "ours": 3.7194907940351656,
+   "dps": 3.774226344425491,
+   "hgatac": 3.7699685565174907,
+   "runs": {
+    "ours": 3,
+    "dps": 35,
+    "hgatac": 15
+   }
+  },
+  {
+   "id": "uniform-n50-s2",
+   "opt": null,
+   "ours": 3.791485777895082,
+   "dps": 3.9399655406892053,
+   "hgatac": 4.020175117969639,
+   "runs": {
+    "ours": 3,
+    "dps": 41,
+    "hgatac": 13
+   }
+  },
+  {
+   "id": "uniform-n50-s3",
+   "opt": null,
+   "ours": 3.5650249891986294,
+   "dps": 3.6840677814901968,
+   "hgatac": 3.652511907514155,
+   "runs": {
+    "ours": 3,
+    "dps": 39,
+    "hgatac": 16
+   }
+  },
+  {
+   "id": "uniform-n50-s4",
+   "opt": null,
+   "ours": 3.6866159451822025,
+   "dps": 3.7579951530054174,
+   "hgatac": 3.7556027800913285,
+   "runs": {
+    "ours": 3,
+    "dps": 46,
+    "hgatac": 15
+   }
+  },
+  {
+   "id": "uniform-n50-s5",
+   "opt": null,
+   "ours": 3.652786107830714,
+   "dps": 3.701829326576234,
+   "hgatac": 3.7034358492087134,
+   "runs": {
+    "ours": 3,
+    "dps": 36,
+    "hgatac": 15
+   }
+  },
+  {
+   "id": "uniform-n50-s6",
+   "opt": null,
+   "ours": 3.588955006854393,
+   "dps": 3.6299770062900554,
+   "hgatac": 3.6242221195375413,
+   "runs": {
+    "ours": 3,
+    "dps": 46,
+    "hgatac": 15
+   }
+  },
+  {
+   "id": "uniform-n50-s7",
+   "opt": null,
+   "ours": 3.778623941469471,
+   "dps": 4.231079939791281,
+   "hgatac": 3.865943183473038,
+   "runs": {
+    "ours": 3,
+    "dps": 41,
+    "hgatac": 12
+   }
+  },
+  {
+   "id": "uniform-n50-s8",
+   "opt": null,
+   "ours": 3.5326668044860865,
+   "dps": 3.595140566691391,
+   "hgatac": 3.5454943769114498,
+   "runs": {
+    "ours": 3,
+    "dps": 40,
+    "hgatac": 17
+   }
+  },
+  {
+   "id": "uniform-n50-s9",
+   "opt": null,
+   "ours": 3.736609166374206,
+   "dps": 3.8516017210650717,
+   "hgatac": 3.79111510554961,
+   "runs": {
+    "ours": 3,
+    "dps": 62,
+    "hgatac": 18
+   }
+  }
+ ]
+}

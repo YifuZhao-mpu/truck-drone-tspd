@@ -1,0 +1,94 @@
+{
+ "bootstrap": 20000,
+ "predictions": {
+  "synthetic_euclid_m1_mean": 34.58457818986141,
+  "synthetic_L1proxy_m1_mean": 38.596330982873006,
+  "synthetic_inc2_mean": 11.227570791462798,
+  "synthetic_inc3_mean": 6.179360571058622
+ },
+ "districts": {
+  "manhattan": {
+   "m1_saving_mean": 39.505517897376855,
+   "inc2_mean": 10.847942910692073,
+   "inc3_mean": 6.54820898653183,
+   "err_inc2_vs_synthetic": {
+    "diff": -0.37962788077072496,
+    "ci95": [
+     -1.0645750306811497,
+     0.3134149654297628
+    ],
+    "n_a": 30,
+    "n_b": 30
+   },
+   "err_inc3_vs_synthetic": {
+    "diff": 0.36884841547320857,
+    "ci95": [
+     -0.1957357541798399,
+     0.9246789454408547
+    ],
+    "n_a": 30,
+    "n_b": 30
+   },
+   "err_m1_vs_L1proxy": {
+    "diff": 0.9091869145038487,
+    "ci95": [
+     -0.6469922696856255,
+     2.458021221704132
+    ],
+    "n_a": 30,
+    "n_b": 30
+   },
+   "err_m1_vs_euclid": {
+    "diff": 4.920939707515444,
+    "ci95": [
+     3.468260608053205,
+     6.341880836554207
+    ],
+    "n_a": 30,
+    "n_b": 30
+   }
+  },
+  "paris": {
+   "m1_saving_mean": 42.28348170382349,
+   "inc2_mean": 11.537904865115483,
+   "inc3_mean": 6.383817679263177,
+   "err_inc2_vs_synthetic": {
+    "diff": 0.31033407365268495,
+    "ci95": [
+     -0.30767979769192183,
+     0.940320371207015
+    ],
+    "n_a": 30,
+    "n_b": 30
+   },
+   "err_inc3_vs_synthetic": {
+    "diff": 0.2044571082045552,
+    "ci95": [
+     -0.36231038504264984,
+     0.8151532849904389
+    ],
+    "n_a": 30,
+    "n_b": 30
+   },
+   "err_m1_vs_L1proxy": {
+    "diff": 3.687150720950484,
+    "ci95": [
+     2.2020339065353376,
+     5.217500549031179
+    ],
+    "n_a": 30,
+    "n_b": 30
+   },
+   "err_m1_vs_euclid": {
+    "diff": 7.69890351396208,
+    "ci95": [
+     6.34800204920904,
+     9.071405920827175
+    ],
+    "n_a": 30,
+    "n_b": 30
+   }
+  }
+ },
+ "note": "Prediction errors, not equivalence tests (no preregistered margin). Independent two-sample bootstrap: district draws and synthetic instances are different instance sets."
+}

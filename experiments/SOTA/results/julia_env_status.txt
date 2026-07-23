@@ -1,0 +1,4 @@
+Status `/tmp/claude-1000/-home-zyf-research-truck-drone-routing/f14f3651-e9ac-409d-b601-f80c4aeb4da9/scratchpad/jdepot/environments/v1.10/Project.toml`
+  [ec3913bb] TSPDrone v0.2.1 `../../../TSPDrone.jl`
+  [bebbd67e] TSPDroneHGATAC v0.1.0 `../../../TSPDroneHGATAC.jl`
+1.10.4

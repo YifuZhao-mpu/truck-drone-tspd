@@ -1,0 +1,99 @@
+H1 done in 583s -> /home/zyf/research/truck-drone-routing/src/../experiments/H1-alns-backbone/results/h1.json
+BENCH gap-to-optimal: {
+  "11": {
+    "mean_gap": 0.11944421007082621,
+    "max_gap": 1.0046985222397264,
+    "median_gap": -5.987548056930281e-15,
+    "pct_optimal": 80.0,
+    "count": 10
+  },
+  "12": {
+    "mean_gap": 0.21344080738906537,
+    "max_gap": 1.352951045818964,
+    "median_gap": 0.0,
+    "pct_optimal": 70.0,
+    "count": 10
+  },
+  "13": {
+    "mean_gap": 0.4026553191707437,
+    "max_gap": 2.672376473540485,
+    "median_gap": 0.0,
+    "pct_optimal": 70.0,
+    "count": 10
+  },
+  "14": {
+    "mean_gap": 0.05721856130533319,
+    "max_gap": 0.57218561305339,
+    "median_gap": 0.0,
+    "pct_optimal": 90.0,
+    "count": 10
+  },
+  "15": {
+    "mean_gap": 0.012530747157799147,
+    "max_gap": 0.1253074715780446,
+    "median_gap": 0.0,
+    "pct_optimal": 90.0,
+    "count": 10
+  },
+  "16": {
+    "mean_gap": 0.053892759664261033,
+    "max_gap": 0.2794387977386146,
+    "median_gap": 0.0,
+    "pct_optimal": 70.0,
+    "count": 10
+  },
+  "17": {
+    "mean_gap": 0.017243677343486443,
+    "max_gap": 0.1724367734348667,
+    "median_gap": 0.0,
+    "pct_optimal": 90.0,
+    "count": 10
+  }
+}
+SYNTH: {
+  "10": {
+    "truck_mean": 3.0420540198843455,
+    "greedy_mean": 2.156533624093505,
+    "sortie_mean": 1.8367601910702822,
+    "generic_mean": 1.8367601910702822,
+    "saving_sortie_mean": 39.62979761522339,
+    "saving_sortie_std": 3.273033795591003,
+    "saving_generic_mean": 39.62979761522339,
+    "greedy_gap_vs_alns": 17.294620454418485,
+    "paired_sortie_minus_generic_mean": 3.700743415417188e-17,
+    "sortie_wins": 0,
+    "generic_wins": 0,
+    "ties": 30,
+    "count": 30
+  },
+  "20": {
+    "truck_mean": 3.943724604577494,
+    "greedy_mean": 2.963218268497876,
+    "sortie_mean": 2.526366160151719,
+    "generic_mean": 2.525484722576348,
+    "saving_sortie_mean": 35.8060587991837,
+    "saving_sortie_std": 4.329635763212254,
+    "saving_generic_mean": 35.82689825730463,
+    "greedy_gap_vs_alns": 17.27131671174602,
+    "paired_sortie_minus_generic_mean": 0.0008814375753708396,
+    "sortie_wins": 1,
+    "generic_wins": 2,
+    "ties": 27,
+    "count": 30
+  },
+  "50": {
+    "truck_mean": 5.886611581548679,
+    "greedy_mean": 4.585107239054567,
+    "sortie_mean": 3.7381236350525295,
+    "generic_mean": 3.753147868520444,
+    "saving_sortie_mean": 36.44327382746193,
+    "saving_sortie_std": 2.7970703486276807,
+    "saving_generic_mean": 36.18858592041338,
+    "greedy_gap_vs_alns": 22.70829425894756,
+    "paired_sortie_minus_generic_mean": -0.01502423346791469,
+    "sortie_wins": 20,
+    "generic_wins": 5,
+    "ties": 5,
+    "count": 30
+  }
+}

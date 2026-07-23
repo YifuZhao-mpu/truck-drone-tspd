@@ -1,0 +1,26 @@
+{
+  "lam0_accounting": {
+    "20": {
+      "strictly_dominated": 0,
+      "displaced_from_front_incl_ties": 5,
+      "note": "strict = a sweep point beats lam=0 in BOTH makespan and energy (search noise); displaced = includes same-makespan lower-energy points (expected tie-breaking under a time-only objective)"
+    },
+    "50": {
+      "strictly_dominated": 3,
+      "displaced_from_front_incl_ties": 7,
+      "note": "strict = a sweep point beats lam=0 in BOTH makespan and energy (search noise); displaced = includes same-makespan lower-energy points (expected tie-breaking under a time-only objective)"
+    }
+  },
+  "matched_sensitivity": {
+    "nominal_12lam_seeds15": {
+      "knee_dms_median": 15.265665054878387,
+      "knee_de_median": 43.16518892613356,
+      "n_knees": 15
+    },
+    "nominal_8lam_seeds15": {
+      "knee_dms_median": 24.265527859015677,
+      "knee_de_median": 46.703522678990595,
+      "n_knees": 15
+    }
+  }
+}

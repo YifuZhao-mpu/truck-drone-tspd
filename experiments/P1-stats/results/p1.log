@@ -1,0 +1,125 @@
+P1 done in 875s -> /home/zyf/research/truck-drone-routing/src/../experiments/P1-stats/results/p1.json
+{
+  "benchmark_gap": {
+    "mean": 0.34535700325398777,
+    "ci95": [
+      0.21031144431618207,
+      0.5054773756456539
+    ],
+    "n": 70,
+    "pct_within_1pct": 87.14285714285714
+  },
+  "sortie_vs_generic": {
+    "n20": {
+      "mean_diff": -0.005493990949146103,
+      "wins": 9,
+      "losses": 6,
+      "ties": 15,
+      "wilcoxon_p_one_sided": 0.075714111328125,
+      "n_nonzero": 15
+    },
+    "n50": {
+      "mean_diff": -0.013651828355497298,
+      "wins": 19,
+      "losses": 11,
+      "ties": 0,
+      "wilcoxon_p_one_sided": 0.13550281431525946,
+      "n_nonzero": 30
+    },
+    "n100": {
+      "wins": 10,
+      "losses": 0,
+      "ties": 0,
+      "mean_diff": -0.09429476369797474,
+      "sign_test_p_one_sided": 0.0009765625
+    }
+  },
+  "alns_vs_greedy": {
+    "n10": {
+      "median_improve_pct": 15.031077834976351,
+      "wilcoxon_p_one_sided": 1.2815416253625037e-06
+    },
+    "n20": {
+      "median_improve_pct": 13.645183183823228,
+      "wilcoxon_p_one_sided": 9.313225746154785e-10
+    },
+    "n50": {
+      "median_improve_pct": 17.0248955669281,
+      "wilcoxon_p_one_sided": 9.313225746154785e-10
+    }
+  },
+  "convergence": {
+    "n20": {
+      "mean_gap_to_long_pct": 0.20010964953767565,
+      "ci95": [
+        0.0023186828872662846,
+        0.4620009699258108
+      ],
+      "max_gap_pct": 1.2569277389638087,
+      "n": 10
+    },
+    "n50": {
+      "mean_gap_to_long_pct": 0.12256481761209399,
+      "ci95": [
+        0.0,
+        0.30997155641415464
+      ],
+      "max_gap_pct": 0.8848051966156558,
+      "n": 10
+    },
+    "n100": {
+      "mean_gap_to_long_pct": 0.5096662938820168,
+      "ci95": [
+        0.397688764140311,
+        0.6390084659375902
+      ],
+      "max_gap_pct": 0.7838423500407825,
+      "n": 6
+    }
+  }
+}
+SAVING CIs: {
+  "uniform_a2_E1_n20": {
+    "mean": 34.088050805740906,
+    "ci95": [
+      32.53438871644908,
+      35.67599853147759
+    ],
+    "n": 20
+  },
+  "uniform_a2_E1_n50": {
+    "mean": 35.064776010573475,
+    "ci95": [
+      33.52079223065474,
+      36.51149014546181
+    ],
+    "n": 12
+  },
+  "clustered_manhattan_n50": {
+    "mean": 28.332119998480337,
+    "ci95": [
+      25.7596092566525,
+      30.904630740308175
+    ],
+    "n": 12,
+    "method": "normal_approx"
+  },
+  "clustered_manhattan_n100": {
+    "mean": 32.72807158715171,
+    "ci95": [
+      31.33524568130544,
+      34.120897492997976
+    ],
+    "n": 12,
+    "method": "normal_approx"
+  },
+  "uniform_manhattan_n50": {
+    "mean": 36.576753639317886,
+    "ci95": [
+      34.145504426556116,
+      39.008002852079656
+    ],
+    "n": 12,
+    "method": "normal_approx"
+  }
+}

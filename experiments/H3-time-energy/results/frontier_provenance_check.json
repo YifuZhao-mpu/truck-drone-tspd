@@ -1,0 +1,54 @@
+{
+ "per_n": {
+  "20": {
+   "front_points_total": 2053,
+   "explained_by_main_order_decode": 2039,
+   "explained_by_stored_values": 14,
+   "from_unarchived_refinement_orders": 0,
+   "recomputed_dominating_archived (must be 0)": 0,
+   "chord_gap_base_recomputed_vs_archived": [
+    0.33773006214277035,
+    0.33773006214277035
+   ],
+   "chord_gap_mid_recomputed_vs_archived": [
+    0.30539474292329516,
+    0.30539474292329516
+   ],
+   "audit_recomputed_canonical": {
+    "extra_front_points": 1765,
+    "eps_indicator_pct": {
+     "mean": 8.243117455962937,
+     "max": 15.32482378881211
+    },
+    "chord_gap_combined_mean": 0.07974052042247164,
+    "note": "canonical values quoted by the manuscript; the archived completeness_audit extra-point counts (1799/8111) used a different tolerance convention and summary.max_chord_gap_after_mean is a stale session value \u2014 both superseded by these"
+   }
+  },
+  "50": {
+   "front_points_total": 8493,
+   "explained_by_main_order_decode": 8416,
+   "explained_by_stored_values": 77,
+   "from_unarchived_refinement_orders": 0,
+   "recomputed_dominating_archived (must be 0)": 0,
+   "chord_gap_base_recomputed_vs_archived": [
+    0.2614517593639263,
+    0.2614517593639263
+   ],
+   "chord_gap_mid_recomputed_vs_archived": [
+    0.21350745878952446,
+    0.21350745878952446
+   ],
+   "audit_recomputed_canonical": {
+    "extra_front_points": 8068,
+    "eps_indicator_pct": {
+     "mean": 6.719455069246027,
+     "max": 11.839812482562106
+    },
+    "chord_gap_combined_mean": 0.050378915863985005,
+    "note": "canonical values quoted by the manuscript; the archived completeness_audit extra-point counts (1799/8111) used a different tolerance convention and summary.max_chord_gap_after_mean is a stale session value \u2014 both superseded by these"
+   }
+  }
+ },
+ "tolerance": 1e-09,
+ "verdict": "PASS: archived fronts are consistent with everything re-derivable from the archive; points from unarchived refinement orders are quantified above (the committed driver now archives refinement orders)."
+}

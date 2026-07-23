@@ -1,0 +1,3 @@
+H3 done in 161s -> /home/zyf/research/truck-drone-routing/src/../experiments/H3-time-energy/results/h3.json
+n=20: non_degenerate=True makespan_span=0.529 energy_span=1.000 knee: +18.6% time buys -59.4% energy
+n=50: non_degenerate=True makespan_span=0.448 energy_span=1.000 knee: +14.7% time buys -58.1% energy

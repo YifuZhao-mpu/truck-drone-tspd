@@ -1,0 +1,65 @@
+{
+ "pool": "winners+replicates+energymin(+reps)+truck-only+exact re-decodings",
+ "variants": {
+  "A_same_te_orders": {
+   "1.0": {
+    "time_opt_vs_truck_only_energy_mean": 1.4959302235681446,
+    "energy_min_vs_truck_only_energy_mean": 0.9985435511248394,
+    "energy_min_is_truck_only_count": 8,
+    "archived_time_opt_mean": 1.4906671711470985,
+    "archived_energy_min_mean": 0.9985435511248395
+   },
+   "6.0": {
+    "time_opt_vs_truck_only_energy_mean": 0.7736048170313577,
+    "energy_min_vs_truck_only_energy_mean": 0.7129872203035686,
+    "energy_min_is_truck_only_count": 0,
+    "archived_time_opt_mean": 0.7722237133904766,
+    "archived_energy_min_mean": 0.709180587106721
+   },
+   "30.0": {
+    "time_opt_vs_truck_only_energy_mean": 0.6586019031454634,
+    "energy_min_vs_truck_only_energy_mean": 0.5524572227369359,
+    "energy_min_is_truck_only_count": 0,
+    "archived_time_opt_mean": 0.6572704853341854,
+    "archived_energy_min_mean": 0.5468108333053928
+   },
+   "60.0": {
+    "time_opt_vs_truck_only_energy_mean": 0.6459369324747554,
+    "energy_min_vs_truck_only_energy_mean": 0.5248407036918108,
+    "energy_min_is_truck_only_count": 0,
+    "archived_time_opt_mean": 0.6429027535866687,
+    "archived_energy_min_mean": 0.521964068813472
+   }
+  },
+  "B_all_te_orders": {
+   "1.0": {
+    "time_opt_vs_truck_only_energy_mean": 1.4905989266901487,
+    "energy_min_vs_truck_only_energy_mean": 0.9985435511248394,
+    "energy_min_is_truck_only_count": 8,
+    "archived_time_opt_mean": 1.4906671711470985,
+    "archived_energy_min_mean": 0.9985435511248395
+   },
+   "6.0": {
+    "time_opt_vs_truck_only_energy_mean": 0.7722123393143183,
+    "energy_min_vs_truck_only_energy_mean": 0.709180587106721,
+    "energy_min_is_truck_only_count": 0,
+    "archived_time_opt_mean": 0.7722237133904766,
+    "archived_energy_min_mean": 0.709180587106721
+   },
+   "30.0": {
+    "time_opt_vs_truck_only_energy_mean": 0.6572704853341854,
+    "energy_min_vs_truck_only_energy_mean": 0.5468108333053928,
+    "energy_min_is_truck_only_count": 0,
+    "archived_time_opt_mean": 0.6572704853341854,
+    "archived_energy_min_mean": 0.5468108333053928
+   },
+   "60.0": {
+    "time_opt_vs_truck_only_energy_mean": 0.6429027535866687,
+    "energy_min_vs_truck_only_energy_mean": 0.521964068813472,
+    "energy_min_is_truck_only_count": 0,
+    "archived_time_opt_mean": 0.6429027535866687,
+    "archived_energy_min_mean": 0.521964068813472
+   }
+  }
+ }
+}

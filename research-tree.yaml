@@ -1,0 +1,129 @@
+# NOTE (2026-07-20, v8/v8.1): the node texts below are the HISTORICAL pre-registration
+# and judgment record; the AUTHORITATIVE current framing is drafts/latex/main.tex.
+# Superseding changes: (1) title -> "When truck-paired drones save time and energy:
+# capability interactions and a power-ratio boundary in last-mile delivery"; (2) H2's
+# "first unified map" framing retired -- joint capability factorials exist (Gonzalez-R
+# 2024; Mahmoodi 2026); the claimed delta is interaction quantification on the canonical
+# makespan-saving scale + the exact power-ratio boundary r*=E_D/(L0-D_T); (3) H3's
+# objective/results were rebuilt in v2 on TOTAL (drone+truck) energy with completed
+# per-instance fronts and service-time-cap statistics (research-log #19, #21, #30);
+# (4) SOTA comparison = matched wall-clock vs TSPDroneHGATAC.jl (HGA-TAC) AND
+# TSPDrone.jl (DPS) -- log #24-25. See research-log.md for the full arc.
+project:
+  title: "A Reproducible Sortie-Aware Metaheuristic for Truck-Drone Delivery and a Systematic Map of When Drones Help"
+  domain: "Vehicle Routing / Operations Research / Last-Mile Logistics / Sustainable Transportation"
+  started: "2026-06-27"
+  status: completed
+  target_venue: "TWO framings produced. (1) drafts/paper.md — Scientific Reports (Nature findings-report format, Intro->Results->Discussion->Methods; design-space + energy as headline). (2) drafts/paper_experimental.md — CLASSIC EXPERIMENTAL research article with the sortie-aware ALNS as the CORE contribution; methods-oriented OR/soft-computing journal (ASOC / C&OR / EAAI tier; CAS 3区). User on 2026-06-29 requested the experimental framing; user on 2026-07-02 asked to continue optimizing experiments FOR Scientific Reports -> paper.md is the PRIMARY draft again (paper_experimental.md kept in sync as alternative). As of submission-v5 ALL results in both drafts come from the single tuned solver (P0/P1 re-run; n=100 fair ablation extended to 30 instances)."
+  method_stance: "Pure metaheuristic / OR. NO deep RL — deliberate non-overlap with the local evrp-drl DRL project."
+  compute: "CPU only (40 cores). No GPU needed."
+
+field_understanding:
+  sota_summary: >
+    Collaborative truck-drone routing descends from FSTSP and PDSTSP (Murray & Chu 2015,
+    min-makespan) and the cleaner TSP-D (Agatz et al. 2018; speed ratio alpha in {1,2,3},
+    one customer per sortie, launch/land at nodes, first-arriver waits). Exact methods reach
+    optimality up to ~39 customers (Roberti & Ruthmair 2021 branch-and-price; Bouman et al.
+    2018 DP ~20; Dell'Amico et al. publish optima as a validation oracle). The strongest
+    metaheuristic is HGA-TAC (Mahmoudinazlou & Kwon 2024, EJOR): a hybrid GA with type-aware
+    chromosomes + DP rendezvous decoding that holds most best-knowns (538/920 TSP-D) and
+    releases code (TSPDrone.jl). ALNS is the standard for multi-truck VRP-D (Sacramento et al.
+    2019) but is barely used for single-vehicle TSP-D/FSTSP, where GA/VNS dominate. Across the
+    field, generic TSP/VRP moves + a make-drone/make-truck toggle + DP rendezvous re-optimization
+    are near-universal, but explicit launch/rendezvous reassignment and drone-customer swap as
+    first-class ALNS operators are largely absent. Savings analyses (speed ratio, endurance,
+    #drones) are studied axis-by-axis on different instance sets/objectives/solvers and have
+    never been unified into one consistent empirical design-space map; the worst-case ceiling is
+    1 - 1/(alpha*k + 1) and the typical asymptotic saving at alpha=2, one drone is ~30%. The
+    time-vs-drone-energy Pareto frontier is underexplored (existing multi-objective work proxies
+    truck CO2 by route length and treats drone energy crudely). Reproducibility is fragmented:
+    no universally accepted benchmark, few open code-backed baselines.
+  key_papers:
+    - {id: murray2015fstsp, title: "FSTSP & PDSTSP (founding paper)", authors: "Murray & Chu", year: 2015, relevance: "Defines the problem family & makespan objective"}
+    - {id: agatz2018tspd, title: "Optimization approaches for the TSP-D", authors: "Agatz, Bouman, Schmidt", year: 2018, relevance: "Target formulation; speed-ratio convention; public instances"}
+    - {id: bouman2018dp, title: "DP for TSP-D + instances", authors: "Bouman, Agatz, Schmidt", year: 2018, relevance: "Exact small-n oracle; the split/DP idea; instance repo"}
+    - {id: roberti2021exact, title: "Exact methods for TSP-D (B&P, 39 cust)", authors: "Roberti & Ruthmair", year: 2021, relevance: "Exact-optimal validation up to 39 customers"}
+    - {id: mahmoudinazlou2024hgatac, title: "HGA-TAC (strongest metaheuristic)", authors: "Mahmoudinazlou & Kwon", year: 2024, relevance: "SOTA best-known table + open code = the comparison bar"}
+    - {id: sacramento2019alns, title: "ALNS for VRP-D", authors: "Sacramento, Pisinger, Ropke", year: 2019, relevance: "ALNS operator template (random/worst/Shaw + greedy/regret)"}
+    - {id: wang2017vrpd, title: "VRP-D worst-case bounds", authors: "Wang, Poikonen, Golden", year: 2017, relevance: "Savings ceiling 1-1/(alpha*k+1) to anchor H2"}
+    - {id: lee2026asymptotic, title: "Asymptotic bounds for TSP-D", authors: "Lee, Hwang, Kwon", year: 2026, relevance: "~30% typical saving at alpha=2 reference for H2"}
+    - {id: dorling2017energy, title: "VRP for drone delivery (energy model)", authors: "Dorling et al.", year: 2017, relevance: "Affine power-in-payload energy model for H3"}
+    - {id: raghunatha2023critical, title: "Emissions/cost/time of drones vs trucks", authors: "Raghunatha et al.", year: 2023, relevance: "Sci Reports precedent + sustainability framing for H3"}
+
+  open_problems:
+    - "No unified, consistent-solver empirical design-space map of truck-drone savings across speed ratio x endurance x #drones; findings are fragmented across papers/objectives/solvers."
+    - "Time-vs-drone-energy Pareto frontier not characterized under a credible energy model + strong solver."
+    - "Sortie-specific operators (launch/rendezvous reassignment, drone-customer swap) not first-class in metaheuristics."
+    - "Reproducibility/standardization: few open, code-backed, statistically-rigorous TSP-D baselines."
+    - "Multi-truck/multi-drone scalability; stochastic/dynamic; nonlinear energy (broader, mostly future work)."
+
+  underexplored_areas:
+    - "Reproducible open ALNS with first-class sortie-aware operators for single-truck TSP-D."
+    - "A 3-axis savings surface (speed x endurance x #drones) under one solver, anchored to the 1-1/(alpha*k+1) ceiling and the ~30% (alpha=2) asymptotic."
+    - "Standardized makespan-vs-drone-energy Pareto with simple payload/speed energy model + managerial decision rules."
+
+hypotheses:
+  - id: "H1"
+    statement: "A reproducible ALNS with first-class sortie-aware operators (launch/rendezvous reassignment + drone-customer swap), with DP-optimal sortie decoding, solves the min-makespan TSP-D competitively — matching exact optima on small instances and reaching a small gap to published best-known on standard Agatz/Bouman instances — at practical CPU runtimes; and the sortie-aware operators are necessary (ablating them degrades solution quality)."
+    parent: null
+    motivation: "Enabling backbone for H2/H3 and a reproducible open TSP-D baseline the field lacks. ALNS is under-used for single-vehicle TSP-D; first-class sortie operators are an operator-level novelty. SOTA-chasing vs HGA-TAC is risky, so the claim is 'competitive + reproducible + operators necessary', not 'new SOTA'."
+    status: approved
+    judgment: {novelty: medium, importance: high, feasibility: true, falsifiability: true, already_solved: false, verdict: approved, rationale: "Necessary engine; falsifiable via gap-to-optimal and the ablation delta; honest, achievable claim. No reproducible open ALNS-for-TSP-D with first-class sortie operators currently exists."}
+    experiment: {design_summary: "Implement TSP-D env + makespan eval + DP split decoder; ALNS with adaptive destroy/repair + sortie-aware operators; baselines = truck-only TSP (2-opt/Or-opt), greedy TSP-LS, generic-ALNS ablation (no sortie ops); validate small-n vs exact, report gap to best-known/optima on uniform n=10/20/50.", protocol_path: "experiments/H1-alns-backbone/protocol.md", status: done}
+    results:
+      summary: "SUPPORTED as a reproducible, competitive baseline; the operator-necessity sub-claim is the honest nuance. (TUNED SOLVER, submission-v5.) (1) VALIDATION: our makespan model reproduces the published Agatz/Bouman exact optima EXACTLY (diff 0.0). (2) COMPETITIVE: ALNS mean gap to published exact optima 0.13% overall (95% CI 0.04-0.23), 80% solved exactly, 94% within 1% — near-optimal; consistently matches/beats TSPDrone.jl (HGA-TAC) at default settings (2.9-3.5% lower makespan, 21/25 paired wins). (3) ALNS beats greedy TSP-LS by 17-23% and the truck-only baseline by ~36-40% at alpha=2. (4) FAIR SORTIE-OPERATOR ABLATION (equal budget + equal intensification, both arms iterate local move to local optimum): tied at n<=20 (n=10 30/30 identical; n=20 1W/2L/27T), SIGNIFICANT at n=50 (20W/5L/5T, sign p~0.002, Wilcoxon p~0.0003) and n=100 (30 instances: 21W/9L, sign p=0.021, Wilcoxon p~0.0004), effect size grows with n (Δ 0.000 -> -0.015 -> -0.050). The DP split absorbs most sortie optimization; operators are a secondary, scale-emergent refinement."
+      outcome: supported
+      key_metrics:
+        - {metric: "mean gap to published exact optima (n=11-17), %", value: 0.13, baseline_value: 0.0, delta: 0.13}
+        - {metric: "pct of benchmark instances solved exactly, %", value: 80.0, baseline_value: null, delta: null}
+        - {metric: "vs TSPDrone.jl default: paired wins (of 25)", value: 21, baseline_value: 12.5, delta: 8.5}
+        - {metric: "paired sortie-minus-generic makespan (n=50)", value: -0.015, baseline_value: 0.0, delta: -0.015}
+        - {metric: "sortie vs generic paired wins at n=100 (30 inst)", value: 21, baseline_value: 15, delta: 6, note: "21W/9L, sign p=0.021, Δ-0.050 — modest, size-growing, significant"}
+      artifacts_path: "experiments/H1-alns-backbone/results/ + experiments/P0-robustness/results/ + experiments/SOTA/results/"
+    children: ["H2", "H3"]
+
+  - id: "H2"
+    statement: "Under one consistent high-quality solver, the makespan saving of truck-drone vs truck-only delivery is an interpretable, diminishing-returns surface over (drone speed ratio alpha, endurance E, number of drones m): saving increases but saturates in each axis, stays below the worst-case ceiling 1-1/(alpha*m+1), and the empirical alpha=2 single-drone saving is near the ~30% asymptotic reference; we identify quantitative saturation thresholds / a 'sweet spot'."
+    parent: "H1"
+    motivation: "HEADLINE novelty. The field studies these axes in isolation on different solvers/instances; no unified, consistent-solver design-space map exists. Directly answers a named fragmentation gap; table/figure-friendly; high SciRep value (clear empirical decision rules)."
+    status: approved
+    judgment: {novelty: true, importance: high, feasibility: true, falsifiability: true, already_solved: false, verdict: approved, rationale: "Genuinely novel as unification+consistency+explicit 3-axis surface; cheap (sweep the H1 solver over a grid); falsifiable via surface shape vs predicted ceiling/asymptotic. Must be framed as consolidation, citing Agatz/Wang/Lee, not as first study of any single axis."}
+    experiment: {design_summary: "Sweep H1 solver over alpha in {1,1.5,2,2.5,3} x E in {0.5,1,2,inf} x m in {1,2,3} on fixed instance sets (n=20,50); metric = % makespan saving vs truck-only TSP; compare to ceiling and asymptotic; map saturation knees.", protocol_path: "experiments/H2-design-space/protocol.md", status: done}
+    results:
+      summary: "SUPPORTED. Saving vs truck-only is an interpretable diminishing-returns SURFACE. (1) Monotone increasing in BOTH speed ratio alpha and endurance E (confirmed n=20 and n=50). (2) Diminishing returns in alpha (n=20, E=1.0: increments +10.4/+6.4/+3.5/+2.1 pts across alpha=1->3). (3) Endurance SATURATES with a clear knee: alpha=2,n=20 saving 18.9% (E=0.5) -> 34.1% (E=1.0) -> 35.8% (E=2.0) -> 35.8% (inf). (4) All values BELOW the worst-case ceiling 1-1/(alpha*m+1) (alpha=2 ceiling 67% vs ~35% actual). (5) alpha=2 single-drone ~34-36% near the ~30% asymptotic reference. (6) #drones diminishing returns at alpha=2: m1/m2/m3 = 34/45/51% (E=1.0), 36/47/54% (inf) — first drone +11pts, third +6pts. First unified consistent-solver design-space map."
+      outcome: supported
+      key_metrics:
+        - {metric: "saving alpha=2,m=1,E>=1 (n=20), %", value: 36.2, baseline_value: 0.0, delta: 36.2}
+        - {metric: "endurance saturation knee (alpha=2,n=20): E0.5->1.0 jump, pts", value: 15.5, baseline_value: null, delta: null}
+        - {metric: "drones m1->m2->m3 saving (alpha=2,E=1.0), %", value: 50.6, baseline_value: 34.5, delta: 16.1}
+        - {metric: "ROBUSTNESS (P0, tuned solver): clustered+road-network saving alpha=2,E=1 n=50/n=100, %", value: 30.8, baseline_value: 36.3, delta: -5.5, note: "persists 27-39% across all demand x road settings (n=100 clustered+road 34.5%); surface shape invariant"}
+      artifacts_path: "experiments/H2-design-space/results/ + experiments/P0-robustness/results/"
+    children: []
+
+  - id: "H3"
+    statement: "Minimizing makespan is not drone-energy-minimal: under a standard payload/speed energy model there is a non-trivial makespan-vs-drone-energy Pareto frontier, and a small sacrifice in makespan yields a disproportionately large reduction in drone energy (an identifiable 'knee'), giving an actionable time-energy decision rule."
+    parent: "H1"
+    motivation: "Secondary, sustainability-framed contribution with strong SciRep fit; time-vs-drone-energy Pareto is underexplored (prior multi-objective work proxies truck CO2 by length, treats drone energy crudely). Falsifiable: if time-opt and energy-opt solutions coincide, refuted."
+    status: approved
+    judgment: {novelty: true, importance: medium, feasibility: true, falsifiability: true, already_solved: false, verdict: approved, rationale: "Clean weighted-sum/epsilon-constraint sweep of the H1 objective with an added energy term; novel framing for TSP-D; falsifiable via Pareto shape and time-opt vs energy-opt divergence."}
+    experiment: {design_summary: "lambda-aware DP split minimizing makespan + lambda*energy (Dorling affine drone energy) inside the ALNS; sweep 9 lambda values; build Pareto front; report knee + time-opt vs energy-opt divergence. NOTE: caught + fixed a modeling bug mid-run — original design added energy only as an ALNS penalty while the split still minimized makespan only, so the decoder always grabbed makespan-optimal sorties and energy could not be traded; fixed by making the SPLIT itself minimize makespan+lambda*energy.", protocol_path: "experiments/H3-time-energy/protocol.md", status: done}
+    results:
+      summary: "SUPPORTED (tuned solver, submission-v5). The makespan-vs-drone-energy Pareto front is NON-DEGENERATE and convex: time-opt and energy-opt solutions are far apart (makespan span 43-53%, energy span 100% — energy-opt reverts to truck-only, 0 drone energy). Front is STEEP near the time optimum: n=20, +3% makespan removes ~20% drone energy; n=50, first ~14% of drone energy is free. Efficient KNEE: n=20 +18.7% makespan for -59.6% drone energy; n=50 +13.2% for -57.8%. Payload-robust (+7-12% time / -49-59% energy across light/nominal/heavy). Time-optimal plans are markedly energy-inefficient; a single-digit time sacrifice ~halves drone energy."
+      outcome: supported
+      key_metrics:
+        - {metric: "knee: makespan increase (n=20), %", value: 18.7, baseline_value: 0.0, delta: 18.7}
+        - {metric: "knee: drone-energy reduction (n=20), %", value: -59.6, baseline_value: 0.0, delta: -59.6}
+        - {metric: "knee: drone-energy reduction (n=50), %", value: -57.8, baseline_value: 0.0, delta: -57.8}
+      artifacts_path: "experiments/H3-time-energy/results/"
+    children: []
+
+  # --- Deferred ---
+  - id: "H4"
+    statement: "The sortie-aware ALNS scales to multi-truck/multi-drone VRP-D and richer realism (heterogeneous endurance) without loss of the operator advantage."
+    parent: "H1"
+    motivation: "Most-cited open problem (multi-truck/multi-drone at scale); natural extension."
+    status: pending
+    judgment: {novelty: medium, importance: medium, feasibility: true, falsifiability: true, already_solved: false, verdict: deferred, rationale: "Scope-expanding; revisit only if H1-H3 leave time. Keeps the core paper focused."}
+    experiment: {design_summary: "", protocol_path: "", status: not_started}
+    results: {summary: "", outcome: null, key_metrics: [], artifacts_path: ""}
+    children: []

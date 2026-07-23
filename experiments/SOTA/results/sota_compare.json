@@ -1,0 +1,43 @@
+{
+  "benchmark": {
+    "11": {
+      "ours_gap": 0.201,
+      "hgatac_gap": 0.285
+    },
+    "13": {
+      "ours_gap": 0.013,
+      "hgatac_gap": 0.834
+    },
+    "15": {
+      "ours_gap": -0.0,
+      "hgatac_gap": 0.583
+    },
+    "17": {
+      "ours_gap": 0.0,
+      "hgatac_gap": 0.564
+    }
+  },
+  "synthetic": {
+    "20": {
+      "ours": 2.579,
+      "hgatac": 2.661,
+      "gap_pct": -2.94,
+      "ours_wins": 6,
+      "n": 10
+    },
+    "50": {
+      "ours": 3.717,
+      "hgatac": 3.856,
+      "gap_pct": -3.48,
+      "ours_wins": 10,
+      "n": 10
+    },
+    "100": {
+      "ours": 5.178,
+      "hgatac": 5.357,
+      "gap_pct": -3.31,
+      "ours_wins": 5,
+      "n": 5
+    }
+  }
+}
