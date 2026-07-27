@@ -39,10 +39,9 @@ authors:
     affiliation: "Faculty of Applied Sciences, Macao Polytechnic University"
 license: MIT
 repository-code: "https://github.com/YifuZhao-mpu/truck-drone-tspd"
-# doi: "[Zenodo DOI — fill on archive]"
 preferred-citation:
   type: article
-  title: "When drones help: a systematic map of the savings and time-energy trade-off in truck-drone last-mile delivery"
+  title: "When truck-paired drones save time and energy: capability interactions and a power-ratio boundary in last-mile delivery"
   authors:
     - family-names: "Zhao"
       given-names: "Yifu"
