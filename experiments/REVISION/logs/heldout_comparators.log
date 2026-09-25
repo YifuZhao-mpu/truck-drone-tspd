@@ -1,0 +1,275 @@
+held-out comparator cross-check: 25 instances, 225 jobs (smoke=False)
+{
+ "pooled": {
+  "instances": 25,
+  "ours": {
+   "instances_with_result": 25,
+   "instances_excluded_no_completed_replicate": 0,
+   "median_gap_pct": 0.0,
+   "iqr_gap_pct": [
+    0.0,
+    0.0
+   ],
+   "max_gap_pct": 0.0,
+   "mean_gap_pct": 0.0,
+   "matches_pooled_best": 25,
+   "median_replicate_spread_pct": 0.08100038523173339,
+   "max_replicate_spread_pct": 1.2192302310762115
+  },
+  "dps": {
+   "instances_with_result": 25,
+   "instances_excluded_no_completed_replicate": 0,
+   "median_gap_pct": 3.5926706107321063,
+   "iqr_gap_pct": [
+    1.7601149605743625,
+    4.694633840259255
+   ],
+   "max_gap_pct": 12.216229538239928,
+   "mean_gap_pct": 4.259369671741064,
+   "matches_pooled_best": 1,
+   "median_replicate_spread_pct": 0.0,
+   "max_replicate_spread_pct": 0.0507343295538893
+  },
+  "hgatac": {
+   "instances_with_result": 25,
+   "instances_excluded_no_completed_replicate": 0,
+   "median_gap_pct": 1.3677340065364556,
+   "iqr_gap_pct": [
+    0.0,
+    3.8124648228017124
+   ],
+   "max_gap_pct": 7.120045396007468,
+   "mean_gap_pct": 2.0117842811298257,
+   "matches_pooled_best": 8,
+   "median_replicate_spread_pct": 0.4394731597190702,
+   "max_replicate_spread_pct": 3.1673483078305753
+  },
+  "pairwise": {
+   "dps_vs_ours": {
+    "first_lower": 0,
+    "second_lower": 24,
+    "ties": 1,
+    "instances_compared": 25
+   },
+   "dps_vs_hgatac": {
+    "first_lower": 2,
+    "second_lower": 22,
+    "ties": 1,
+    "instances_compared": 25
+   },
+   "hgatac_vs_ours": {
+    "first_lower": 0,
+    "second_lower": 17,
+    "ties": 8,
+    "instances_compared": 25
+   }
+  }
+ },
+ "n20": {
+  "instances": 10,
+  "ours": {
+   "instances_with_result": 10,
+   "instances_excluded_no_completed_replicate": 0,
+   "median_gap_pct": 0.0,
+   "iqr_gap_pct": [
+    0.0,
+    0.0
+   ],
+   "max_gap_pct": 0.0,
+   "mean_gap_pct": 0.0,
+   "matches_pooled_best": 10,
+   "median_replicate_spread_pct": 0.0,
+   "max_replicate_spread_pct": 0.0
+  },
+  "dps": {
+   "instances_with_result": 10,
+   "instances_excluded_no_completed_replicate": 0,
+   "median_gap_pct": 1.9168128583249704,
+   "iqr_gap_pct": [
+    1.3784936290607472,
+    4.091311978857319
+   ],
+   "max_gap_pct": 10.472752288988678,
+   "mean_gap_pct": 3.24355856295605,
+   "matches_pooled_best": 1,
+   "median_replicate_spread_pct": 0.0,
+   "max_replicate_spread_pct": 0.0
+  },
+  "hgatac": {
+   "instances_with_result": 10,
+   "instances_excluded_no_completed_replicate": 0,
+   "median_gap_pct": 0.0,
+   "iqr_gap_pct": [
+    0.0,
+    0.1725289150481169
+   ],
+   "max_gap_pct": 1.3677340065364556,
+   "mean_gap_pct": 0.1840423910179495,
+   "matches_pooled_best": 7,
+   "median_replicate_spread_pct": 0.0,
+   "max_replicate_spread_pct": 0.7177361993611476
+  },
+  "pairwise": {
+   "dps_vs_ours": {
+    "first_lower": 0,
+    "second_lower": 9,
+    "ties": 1,
+    "instances_compared": 10
+   },
+   "dps_vs_hgatac": {
+    "first_lower": 0,
+    "second_lower": 9,
+    "ties": 1,
+    "instances_compared": 10
+   },
+   "hgatac_vs_ours": {
+    "first_lower": 0,
+    "second_lower": 3,
+    "ties": 7,
+    "instances_compared": 10
+   }
+  }
+ },
+ "n50": {
+  "instances": 10,
+  "ours": {
+   "instances_with_result": 10,
+   "instances_excluded_no_completed_replicate": 0,
+   "median_gap_pct": 0.0,
+   "iqr_gap_pct": [
+    0.0,
+    0.0
+   ],
+   "max_gap_pct": 0.0,
+   "mean_gap_pct": 0.0,
+   "matches_pooled_best": 10,
+   "median_replicate_spread_pct": 0.22611933611280027,
+   "max_replicate_spread_pct": 1.2192302310762115
+  },
+  "dps": {
+   "instances_with_result": 10,
+   "instances_excluded_no_completed_replicate": 0,
+   "median_gap_pct": 4.2176764310083055,
+   "iqr_gap_pct": [
+    3.105957775898261,
+    4.623446880263768
+   ],
+   "max_gap_pct": 12.216229538239928,
+   "mean_gap_pct": 4.9379415295175395,
+   "matches_pooled_best": 0,
+   "median_replicate_spread_pct": 0.0,
+   "max_replicate_spread_pct": 0.0
+  },
+  "hgatac": {
+   "instances_with_result": 10,
+   "instances_excluded_no_completed_replicate": 0,
+   "median_gap_pct": 3.0776305714151,
+   "iqr_gap_pct": [
+    1.0638067474260933,
+    4.06128320832993
+   ],
+   "max_gap_pct": 7.120045396007468,
+   "mean_gap_pct": 2.9180056976425486,
+   "matches_pooled_best": 1,
+   "median_replicate_spread_pct": 0.7328900713525177,
+   "max_replicate_spread_pct": 3.1673483078305753
+  },
+  "pairwise": {
+   "dps_vs_ours": {
+    "first_lower": 0,
+    "second_lower": 10,
+    "ties": 0,
+    "instances_compared": 10
+   },
+   "dps_vs_hgatac": {
+    "first_lower": 0,
+    "second_lower": 10,
+    "ties": 0,
+    "instances_compared": 10
+   },
+   "hgatac_vs_ours": {
+    "first_lower": 0,
+    "second_lower": 9,
+    "ties": 1,
+    "instances_compared": 10
+   }
+  }
+ },
+ "n100": {
+  "instances": 5,
+  "ours": {
+   "instances_with_result": 5,
+   "instances_excluded_no_completed_replicate": 0,
+   "median_gap_pct": 0.0,
+   "iqr_gap_pct": [
+    0.0,
+    0.0
+   ],
+   "max_gap_pct": 0.0,
+   "mean_gap_pct": 0.0,
+   "matches_pooled_best": 5,
+   "median_replicate_spread_pct": 0.6827788565435908,
+   "max_replicate_spread_pct": 0.7559282756822475
+  },
+  "dps": {
+   "instances_with_result": 5,
+   "instances_excluded_no_completed_replicate": 0,
+   "median_gap_pct": 4.375337721393493,
+   "iqr_gap_pct": [
+    3.2318260175060627,
+    5.941866225984784
+   ],
+   "max_gap_pct": 8.51174628184999,
+   "mean_gap_pct": 4.933848173758141,
+   "matches_pooled_best": 0,
+   "median_replicate_spread_pct": 0.0,
+   "max_replicate_spread_pct": 0.0507343295538893
+  },
+  "hgatac": {
+   "instances_with_result": 5,
+   "instances_excluded_no_completed_replicate": 0,
+   "median_gap_pct": 4.676878853030246,
+   "iqr_gap_pct": [
+    2.6458332324485045,
+    5.0655933323458475
+   ],
+   "max_gap_pct": 5.389614622598975,
+   "mean_gap_pct": 3.8548252283281315,
+   "matches_pooled_best": 0,
+   "median_replicate_spread_pct": 1.265276657796819,
+   "max_replicate_spread_pct": 2.6698869864210035
+  },
+  "pairwise": {
+   "dps_vs_ours": {
+    "first_lower": 0,
+    "second_lower": 5,
+    "ties": 0,
+    "instances_compared": 5
+   },
+   "dps_vs_hgatac": {
+    "first_lower": 2,
+    "second_lower": 3,
+    "ties": 0,
+    "instances_compared": 5
+   },
+   "hgatac_vs_ours": {
+    "first_lower": 0,
+    "second_lower": 5,
+    "ties": 0,
+    "instances_compared": 5
+   }
+  }
+ },
+ "replicate_statuses": {
+  "ours": {
+   "completed": 75
+  },
+  "dps": {
+   "completed": 75
+  },
+  "hgatac": {
+   "completed": 75
+  }
+ }
+}
+done in 6553.9s -> <author-home>/research/truck-drone-routing/src/../experiments/SOTA/results/heldout_comparators_v3.json

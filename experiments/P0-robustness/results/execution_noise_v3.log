@@ -1,0 +1,51 @@
+{
+  "0.1": {
+    "nominal_mean_saving_pct": 34.28243942513515,
+    "mean_instance_median_realized_saving_pct": 33.365366790850636,
+    "mean_instance_median_ci95": [
+      32.45471957468502,
+      34.28397722380794
+    ],
+    "mean_instance_q05_realized_saving_pct": 31.147811892072077,
+    "mean_instance_q05_ci95": [
+      30.201185896777446,
+      32.09957317529746
+    ],
+    "mean_instance_q95_realized_saving_pct": 35.481677488458914,
+    "mean_instance_q95_ci95": [
+      34.58816213062702,
+      36.37639387776117
+    ],
+    "mean_probability_realized_saving_positive": 1.0,
+    "probability_positive_ci95": [
+      1.0,
+      1.0
+    ],
+    "median_change_from_nominal_points": -0.9170726342845157
+  },
+  "0.2": {
+    "nominal_mean_saving_pct": 34.28243942513515,
+    "mean_instance_median_realized_saving_pct": 31.524823389801465,
+    "mean_instance_median_ci95": [
+      30.606794554406637,
+      32.4043445461458
+    ],
+    "mean_instance_q05_realized_saving_pct": 26.97941646254344,
+    "mean_instance_q05_ci95": [
+      25.970082951744377,
+      27.9604540536646
+    ],
+    "mean_instance_q95_realized_saving_pct": 35.74448922960707,
+    "mean_instance_q95_ci95": [
+      34.88760176573071,
+      36.6030432806823
+    ],
+    "mean_probability_realized_saving_positive": 1.0,
+    "probability_positive_ci95": [
+      1.0,
+      1.0
+    ],
+    "median_change_from_nominal_points": -2.7576160353336867
+  }
+}
+<author-home>/research/truck-drone-routing/src/../experiments/P0-robustness/results/execution_noise_v3.json

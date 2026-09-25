@@ -1,0 +1,65 @@
+{
+  "gate": {
+    "status": "PASS",
+    "jobs": 1200,
+    "archived_fields_checked": 3480,
+    "comparison": "exact Python equality",
+    "route_note": "P0-v2 did not archive routes; v3 routes retained prospectively"
+  },
+  "ablation": {
+    "20": {
+      "all_seed_mean_relative_diff_pct": -0.004956476774806829,
+      "all_seed_mean_relative_diff_ci95": [
+        -0.06879674092224074,
+        0.05815623624749346
+      ],
+      "sortie_wins": 5,
+      "generic_wins": 6,
+      "ties": 19,
+      "wilcoxon_p_one_sided": 0.38232421875
+    },
+    "50": {
+      "all_seed_mean_relative_diff_pct": -0.5724533042201223,
+      "all_seed_mean_relative_diff_ci95": [
+        -0.7329046551266717,
+        -0.41285768566277775
+      ],
+      "sortie_wins": 27,
+      "generic_wins": 3,
+      "ties": 0,
+      "wilcoxon_p_one_sided": 1.9278377294540405e-07
+    },
+    "100": {
+      "all_seed_mean_relative_diff_pct": -0.7988553838220512,
+      "all_seed_mean_relative_diff_ci95": [
+        -1.1155908804665784,
+        -0.4803626962373661
+      ],
+      "sortie_wins": 25,
+      "generic_wins": 5,
+      "ties": 0,
+      "wilcoxon_p_one_sided": 3.955326974391937e-05
+    }
+  },
+  "budget": {
+    "50": {
+      "all_seed_mean_gap_pct": 0.2519190072671425,
+      "all_seed_mean_gap_ci95": [
+        0.14552565042136598,
+        0.37504179579042357
+      ],
+      "best_of_3_mean_gap_pct": 0.11517729647828963,
+      "note": "search-stability diagnostic, not optimality bound"
+    },
+    "100": {
+      "all_seed_mean_gap_pct": 0.5619790142151408,
+      "all_seed_mean_gap_ci95": [
+        0.3219640497617439,
+        0.8465155975750999
+      ],
+      "best_of_3_mean_gap_pct": 0.41065177759330784,
+      "note": "search-stability diagnostic, not optimality bound"
+    }
+  }
+}
+done in 35081.3s -> <author-home>/research/truck-drone-routing/src/../experiments/P0-robustness/results/p0_v3.json

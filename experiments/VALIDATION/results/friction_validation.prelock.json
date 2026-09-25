@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "zero_friction": {
+    "n": 240,
+    "max_abs_error": 0.0
+  },
+  "exhaustive_friction": {
+    "n": 360,
+    "max_abs_error": 1.7763568394002505e-15,
+    "arrival_relation_coverage": {
+      "before": true,
+      "during": true,
+      "after": true
+    },
+    "case_types": [
+      "launch-only",
+      "recovery-only",
+      "asymmetric handling",
+      "service-only",
+      "joint",
+      "partial eligibility"
+    ]
+  },
+  "monotonicity": {
+    "n": 120,
+    "minimum_nonnegative_contrast": 0.0
+  },
+  "all_ineligible": {
+    "n": 90,
+    "max_abs_error": 1.7763568394002505e-14
+  },
+  "full_solver_path": {
+    "n": 18,
+    "max_abs_error": 8.881784197001252e-16
+  },
+  "semantics": "service charged once to serving vehicle; rendezvous service may overlap flight; launch/recovery bracket synchronization; endurance remains distance based"
+}

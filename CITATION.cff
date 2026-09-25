@@ -2,6 +2,9 @@ cff-version: 1.2.0
 message: "If you use this software or the results, please cite the paper below."
 title: "When truck-paired drones save time and energy: capability interactions and a power-ratio boundary in last-mile delivery (solver + experiments)"
 type: software
+version: "1.1-revision"
+doi: "10.5281/zenodo.22297604"
+date-released: 2026-09-04
 authors:
   - family-names: "Zhao"
     given-names: "Yifu"
@@ -61,5 +64,4 @@ preferred-citation:
       given-names: "Yapeng"
     - family-names: "Yang"
       given-names: "Xu"
-  journal: "[journal — fill on acceptance]"
   year: 2026

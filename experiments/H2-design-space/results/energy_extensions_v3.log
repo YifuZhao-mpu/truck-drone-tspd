@@ -1,0 +1,173 @@
+{
+  "boundary_base": {
+    "aggregation": "replicate mean within (instance, capability cell); instance median / fraction over cells; distribution and bootstrap across instances",
+    "plan_level_descriptive": {
+      "median": 2.9837889993826634,
+      "iqr": [
+        2.2083525535170363,
+        4.621119247614027
+      ],
+      "mean": 3.749354551483231,
+      "min": 1.1933343828580265,
+      "max": 19.963391406836106
+    },
+    "cells_dropped_nonfinite": 0,
+    "instance_median_rstar": {
+      "median": 2.927277936855691,
+      "iqr": [
+        2.7435276240620796,
+        3.164596652076144
+      ],
+      "mean": 2.9799810840030845,
+      "min": 2.4437343703895493,
+      "max": 4.350708341468056
+    },
+    "instance_mean_fraction_below_r6": 0.8480555555555556,
+    "instance_mean_fraction_below_r6_ci95": [
+      0.8336111111111111,
+      0.8616666666666666
+    ],
+    "nonfinite": 0
+  },
+  "boundary_stress": {
+    "aggregation": "replicate mean within (instance, capability cell); instance median / fraction over cells; distribution and bootstrap across instances",
+    "plan_level_descriptive": {
+      "median": 3.8884079045903217,
+      "iqr": [
+        2.904338053895896,
+        5.632525207767331
+      ],
+      "mean": 4.7638055121317056,
+      "min": 1.3954370191458632,
+      "max": 39.1455109701394
+    },
+    "cells_dropped_nonfinite": 0,
+    "instance_median_rstar": {
+      "median": 3.863381158640351,
+      "iqr": [
+        3.6007297921594708,
+        4.06716535195986
+      ],
+      "mean": 3.888178770619101,
+      "min": 3.115959767386253,
+      "max": 5.58990191585462
+    },
+    "instance_mean_fraction_below_r6": 0.7811111111111111,
+    "instance_mean_fraction_below_r6_ci95": [
+      0.7630555555555556,
+      0.7972222222222222
+    ],
+    "nonfinite": 0
+  },
+  "empirical": {
+    "rodrigues_quadcopter_electric_van": {
+      "source": "Rodrigues et al. 2022 version of record, Table 3",
+      "truck_to_drone_distance_intensity_ratio": 20.625,
+      "energy_saving_pct": {
+        "median": 32.41548378282336,
+        "iqr": [
+          23.10766793308538,
+          40.4824550593546
+        ],
+        "mean": 31.920868883583932,
+        "min": 1.5577708531822054,
+        "max": 64.64005602147536
+      },
+      "fraction_faster_and_lower_energy": 1.0,
+      "fraction_faster_and_lower_energy_ci95": [
+        1.0,
+        1.0
+      ],
+      "median_instance_energy_saving_among_green_and_fast_pct": 32.32759546696167,
+      "median_instance_energy_saving_ci95": [
+        31.289814773431186,
+        33.944577457237514
+      ],
+      "instances_with_at_least_one_green_and_fast_plan": 60,
+      "historical_v2_winner_fraction_faster_and_lower_energy": 1.0,
+      "aggregation": "replicate mean within (instance, capability cell); instance fraction = mean over cells, instance magnitude = median over green-and-fast cells; then median / median-bootstrap across 60 instances"
+    },
+    "rodrigues_quadcopter_diesel_van": {
+      "source": "Rodrigues et al. 2022 version of record, Table 3",
+      "truck_to_drone_distance_intensity_ratio": 61.25,
+      "energy_saving_pct": {
+        "median": 37.411057955700734,
+        "iqr": [
+          27.165767470037927,
+          46.8481986941932
+        ],
+        "mean": 37.1095082172407,
+        "min": 2.9105514499348395,
+        "max": 73.23193434994715
+      },
+      "fraction_faster_and_lower_energy": 1.0,
+      "fraction_faster_and_lower_energy_ci95": [
+        1.0,
+        1.0
+      ],
+      "median_instance_energy_saving_among_green_and_fast_pct": 36.82159837054708,
+      "median_instance_energy_saving_ci95": [
+        36.47349279162804,
+        39.04871231438567
+      ],
+      "instances_with_at_least_one_green_and_fast_plan": 60,
+      "historical_v2_winner_fraction_faster_and_lower_energy": 1.0,
+      "aggregation": "replicate mean within (instance, capability cell); instance fraction = mean over cells, instance magnitude = median over green-and-fast cells; then median / median-bootstrap across 60 instances"
+    },
+    "stolaroff_quadcopter_class4_ev": {
+      "source": "Stolaroff et al. 2018 (32 J/m small quadcopter; Class-4 EV 2.44 MJ/km)",
+      "truck_to_drone_distance_intensity_ratio": 76.25,
+      "energy_saving_pct": {
+        "median": 37.91168896426355,
+        "iqr": [
+          27.580608038586305,
+          47.53528898102088
+        ],
+        "mean": 37.62771784552017,
+        "min": 3.0456589193709083,
+        "max": 74.09003871768356
+      },
+      "fraction_faster_and_lower_energy": 1.0,
+      "fraction_faster_and_lower_energy_ci95": [
+        1.0,
+        1.0
+      ],
+      "median_instance_energy_saving_among_green_and_fast_pct": 37.41027535607118,
+      "median_instance_energy_saving_ci95": [
+        36.90132980032017,
+        39.49978512060002
+      ],
+      "instances_with_at_least_one_green_and_fast_plan": 60,
+      "historical_v2_winner_fraction_faster_and_lower_energy": 1.0,
+      "aggregation": "replicate mean within (instance, capability cell); instance fraction = mean over cells, instance magnitude = median over green-and-fast cells; then median / median-bootstrap across 60 instances"
+    },
+    "stolaroff_quadcopter_class4_diesel": {
+      "source": "Stolaroff et al. 2018 (32 J/m small quadcopter; Class-4 diesel 7.3 MJ/km)",
+      "truck_to_drone_distance_intensity_ratio": 228.125,
+      "energy_saving_pct": {
+        "median": 39.190736571356894,
+        "iqr": [
+          28.621211662163503,
+          49.345125939685104
+        ],
+        "mean": 39.03646717061689,
+        "min": 3.412947649639253,
+        "max": 76.42278956394777
+      },
+      "fraction_faster_and_lower_energy": 1.0,
+      "fraction_faster_and_lower_energy_ci95": [
+        1.0,
+        1.0
+      ],
+      "median_instance_energy_saving_among_green_and_fast_pct": 38.88670831383659,
+      "median_instance_energy_saving_ci95": [
+        38.2904108348029,
+        40.74645231400719
+      ],
+      "instances_with_at_least_one_green_and_fast_plan": 60,
+      "historical_v2_winner_fraction_faster_and_lower_energy": 1.0,
+      "aggregation": "replicate mean within (instance, capability cell); instance fraction = mean over cells, instance magnitude = median over green-and-fast cells; then median / median-bootstrap across 60 instances"
+    }
+  }
+}
+<author-home>/research/truck-drone-routing/src/../experiments/H2-design-space/results/energy_extensions_v3.json.gz

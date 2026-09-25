@@ -1,0 +1,104 @@
+60 district-instance jobs x 5 cells x 3 replicates
+{
+ "manhattan_a1_E1": {
+  "all_seed_mean_saving_pct": 26.52367818232581,
+  "all_seed_ci95": [
+   25.792424711745127,
+   27.220191061654727
+  ],
+  "best_of_3_mean_saving_pct": 26.631279582073383,
+  "selection_gain_points": 0.10760139974757266,
+  "circuity_mean": 1.2757179490961545
+ },
+ "manhattan_a2_E0.5": {
+  "all_seed_mean_saving_pct": 35.28421597372063,
+  "all_seed_ci95": [
+   34.13994788994566,
+   36.37628401578072
+  ],
+  "best_of_3_mean_saving_pct": 35.62941973056531,
+  "selection_gain_points": 0.34520375684468263,
+  "circuity_mean": 1.2757179490961545
+ },
+ "manhattan_a2_E1": {
+  "all_seed_mean_saving_pct": 39.0789206827059,
+  "all_seed_ci95": [
+   37.949706916100716,
+   40.16004353594712
+  ],
+  "best_of_3_mean_saving_pct": 39.505517897376855,
+  "selection_gain_points": 0.4265972146709558,
+  "circuity_mean": 1.2757179490961545
+ },
+ "manhattan_a2_Einf": {
+  "all_seed_mean_saving_pct": 39.1649168508688,
+  "all_seed_ci95": [
+   38.083124216350015,
+   40.192991447970705
+  ],
+  "best_of_3_mean_saving_pct": 39.73303810471315,
+  "selection_gain_points": 0.5681212538443532,
+  "circuity_mean": 1.2757179490961545
+ },
+ "manhattan_a3_E1": {
+  "all_seed_mean_saving_pct": 43.002798837150344,
+  "all_seed_ci95": [
+   41.761534600149574,
+   44.19102533371858
+  ],
+  "best_of_3_mean_saving_pct": 43.74376049392552,
+  "selection_gain_points": 0.7409616567751769,
+  "circuity_mean": 1.2757179490961545
+ },
+ "paris_a1_E1": {
+  "all_seed_mean_saving_pct": 28.7207978052391,
+  "all_seed_ci95": [
+   27.883013885091092,
+   29.58663530416924
+  ],
+  "best_of_3_mean_saving_pct": 28.826210970992744,
+  "selection_gain_points": 0.10541316575364235,
+  "circuity_mean": 1.2513801990655695
+ },
+ "paris_a2_E0.5": {
+  "all_seed_mean_saving_pct": 37.93779443189237,
+  "all_seed_ci95": [
+   36.915497608039296,
+   38.988710030825644
+  ],
+  "best_of_3_mean_saving_pct": 38.35481782011422,
+  "selection_gain_points": 0.4170233882218497,
+  "circuity_mean": 1.2513801990655695
+ },
+ "paris_a2_E1": {
+  "all_seed_mean_saving_pct": 41.88032892577761,
+  "all_seed_ci95": [
+   40.84225302953459,
+   42.914248147707774
+  ],
+  "best_of_3_mean_saving_pct": 42.28348170382349,
+  "selection_gain_points": 0.4031527780458788,
+  "circuity_mean": 1.2513801990655695
+ },
+ "paris_a2_Einf": {
+  "all_seed_mean_saving_pct": 41.898953550382195,
+  "all_seed_ci95": [
+   40.894335968119684,
+   42.90009495791857
+  ],
+  "best_of_3_mean_saving_pct": 42.33774190414791,
+  "selection_gain_points": 0.438788353765716,
+  "circuity_mean": 1.2513801990655695
+ },
+ "paris_a3_E1": {
+  "all_seed_mean_saving_pct": 46.164863294730694,
+  "all_seed_ci95": [
+   45.06339952262778,
+   47.226425674664775
+  ],
+  "best_of_3_mean_saving_pct": 46.830465345874366,
+  "selection_gain_points": 0.6656020511436722,
+  "circuity_mean": 1.2513801990655695
+ }
+}
+done in 2062.7s -> <author-home>/research/truck-drone-routing/src/../experiments/REALNET/results/realnet_capability_v3.json

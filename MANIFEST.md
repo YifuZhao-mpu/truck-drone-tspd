@@ -1,35 +1,26 @@
-# Release manifest
+# Reproducibility release manifest
 
-- **Release**: initial public release accompanying the *Scientific Reports* submission.
-- **Source**: private research repository at tag `submission-v8.4`, commit `55ef6ba`
-  (fresh-history snapshot; the private repo's full history is summarized in
-  `research-log.md`).
-- **Manuscript**: under review; citation and manuscript sources will be added on
-  publication. Authors and ORCIDs: see `CITATION.cff`.
+- Release: v1.1-revision
+- Source commit: `4d73704935714c50008d9d56a54407f9768fd41d`
+- Version DOI: 10.5281/zenodo.22297604
+- License: MIT
+- Files before manifest/checksums: 204
 
-## Canonical result artifacts (single source of truth for every number in the paper)
+## Contents
 
-| Claim family | Artifact |
-|---|---|
-| Solver validation (benchmark gap, DP==sim, brute force, span caps, timing) | `experiments/VALIDATION/results/validation_v2.json` |
-| Multi-drone exact validation (120/120) | `experiments/VALIDATION/results/multi_exact_v2.json` |
-| Capability factorial (5x4x3) | `experiments/H2-design-space/results/h2_v2.json` |
-| Green-and-fast boundary r* | `experiments/H2-design-space/results/rstar_v2.json` |
-| Time-energy sweep + completed fronts | `experiments/H3-time-energy/results/h3_v2.json`, `h3_frontier.json` |
-| Service-time caps | `experiments/H3-time-energy/results/service_level_v2.json` |
-| Calibrated two-regime analysis | `experiments/H3-time-energy/results/h3_calibrated.json` |
-| Frontier/endpoint provenance checks | `frontier_provenance_check.json`, `calibrated_endpoints_check.json` |
-| Robustness deconfound + ablation + budget diagnostic | `experiments/P0-robustness/results/p0_v2.json`, `ops_factorial_v2.json` |
-| Street-network case + transfer test | `experiments/REALNET/results/realnet.json`, `transfer_test_v2.json` |
-| Truck-only references (best-found LKH) | `experiments/TSPREF/results/` |
-| Matched wall-clock external comparison | `experiments/SOTA/results/sota_matched.json` (+ replicates) |
+- `src/`: solver, validation, experiment, analysis and figure-generation code.
+- `experiments/`: raw seed-level rows, routes, resumable checkpoints, summaries,
+  validation artifacts, comparator environment and run logs.
+- `benchmarks/realnet/`: cached OpenStreetMap extracts used in the two-district test.
+- `figures/`: vector PDF and 600-dpi PNG revision figures generated from the results.
+- `revision/`: locked revision protocol, disclosed deviations, run ledger and point ledger.
+- `requirements-lock.txt` and `experiments/SOTA/julia/Manifest.toml`: pinned Python
+  and Julia environments.
+- `SHA256SUMS`: SHA-256 digest of every other file in this release.
 
-## Known limitations of the archive (disclosed in the paper)
+Workstation-specific absolute home prefixes in console logs are normalized to
+`<author-home>` in this public copy; numerical result files are unchanged.
 
-- Early experiments (factorial, deconfound grid, main energy sweep) archive best-of-three
-  winners only; later experiments archive all replicates and seeds.
-- Completed-front provenance: 10,455 of 10,546 points re-decode from archived routes; the
-  remaining 91 match stored solution values (`verify_frontier_fields.py`, zero violations).
-- Truck-only references are best-found LKH tours, not certified optima.
-- The public Agatz-Bouman benchmark is fetched from its original repository, not
-  redistributed (see README).
+The public Agatz--Bouman benchmark is not redistributed; README.md gives the original
+source and retrieval instructions. The version DOI above is read from CITATION.cff; a
+PENDING value marks a preview archive and must not be published.

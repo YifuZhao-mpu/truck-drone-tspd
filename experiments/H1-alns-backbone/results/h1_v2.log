@@ -1,4 +1,4 @@
-H1 done in 583s -> /home/zyf/research/truck-drone-routing/src/../experiments/H1-alns-backbone/results/h1.json
+H1 done in 583s -> <author-home>/research/truck-drone-routing/src/../experiments/H1-alns-backbone/results/h1.json
 BENCH gap-to-optimal: {
   "11": {
     "mean_gap": 0.11944421007082621,

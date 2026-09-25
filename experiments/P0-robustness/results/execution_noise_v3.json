@@ -1,0 +1,976 @@
+{
+  "config": {
+    "n": 50,
+    "alpha": 2.0,
+    "endurance": 1.0,
+    "cvs": [
+      0.1,
+      0.2
+    ],
+    "realizations_per_route": 10000,
+    "distribution": "mean-one lognormal independent by vehicle/directed edge; common random numbers on shared truck edges",
+    "scope": "post-hoc fixed-route stress test; no stochastic re-optimization",
+    "aggregation": "mean over 3 solver routes within each instance/realization; distribution statistics within instance; mean/bootstrap over instances",
+    "bootstrap_resamples": 20000,
+    "bootstrap_unit": "instance",
+    "rng_seed_rule": "SeedSequence([20260901, instance, round(1000*CV), vehicle_code, directed_from, directed_to])",
+    "route_reconstruction": {
+      "tolerance_abs": 1e-12,
+      "max_abs_delta_observed": 3.1086244689504383e-15,
+      "ops_identical_unrestricted_vs_span12": true
+    },
+    "git_commit": "b6fd9bf97bb0b1adde0c05d37e3317413a8f3fdb"
+  },
+  "summary": {
+    "0.1": {
+      "nominal_mean_saving_pct": 34.28243942513515,
+      "mean_instance_median_realized_saving_pct": 33.365366790850636,
+      "mean_instance_median_ci95": [
+        32.45471957468502,
+        34.28397722380794
+      ],
+      "mean_instance_q05_realized_saving_pct": 31.147811892072077,
+      "mean_instance_q05_ci95": [
+        30.201185896777446,
+        32.09957317529746
+      ],
+      "mean_instance_q95_realized_saving_pct": 35.481677488458914,
+      "mean_instance_q95_ci95": [
+        34.58816213062702,
+        36.37639387776117
+      ],
+      "mean_probability_realized_saving_positive": 1.0,
+      "probability_positive_ci95": [
+        1.0,
+        1.0
+      ],
+      "median_change_from_nominal_points": -0.9170726342845157
+    },
+    "0.2": {
+      "nominal_mean_saving_pct": 34.28243942513515,
+      "mean_instance_median_realized_saving_pct": 31.524823389801465,
+      "mean_instance_median_ci95": [
+        30.606794554406637,
+        32.4043445461458
+      ],
+      "mean_instance_q05_realized_saving_pct": 26.97941646254344,
+      "mean_instance_q05_ci95": [
+        25.970082951744377,
+        27.9604540536646
+      ],
+      "mean_instance_q95_realized_saving_pct": 35.74448922960707,
+      "mean_instance_q95_ci95": [
+        34.88760176573071,
+        36.6030432806823
+      ],
+      "mean_probability_realized_saving_positive": 1.0,
+      "probability_positive_ci95": [
+        1.0,
+        1.0
+      ],
+      "median_change_from_nominal_points": -2.7576160353336867
+    }
+  },
+  "rows": [
+    {
+      "instance_seed": 0,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 29.172209437782012,
+      "median_realized_saving_pct": 28.312419234326402,
+      "q05_realized_saving_pct": 25.821325332483244,
+      "q95_realized_saving_pct": 30.79880297717797,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 28.31354527813588,
+      "unique_directed_edges_by_replicate": [
+        101,
+        107,
+        104
+      ]
+    },
+    {
+      "instance_seed": 0,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 29.172209437782012,
+      "median_realized_saving_pct": 26.512605498165605,
+      "q05_realized_saving_pct": 21.345375503221845,
+      "q95_realized_saving_pct": 31.29018813337753,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 26.43184869847269,
+      "unique_directed_edges_by_replicate": [
+        101,
+        107,
+        104
+      ]
+    },
+    {
+      "instance_seed": 1,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 32.32690556043135,
+      "median_realized_saving_pct": 31.403147828493324,
+      "q05_realized_saving_pct": 29.226486729699204,
+      "q95_realized_saving_pct": 33.469762174999104,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 31.39036103959431,
+      "unique_directed_edges_by_replicate": [
+        120,
+        115,
+        122
+      ]
+    },
+    {
+      "instance_seed": 1,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 32.32690556043135,
+      "median_realized_saving_pct": 29.414162371591303,
+      "q05_realized_saving_pct": 24.95873805671085,
+      "q95_realized_saving_pct": 33.64425310938767,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 29.375899020996346,
+      "unique_directed_edges_by_replicate": [
+        120,
+        115,
+        122
+      ]
+    },
+    {
+      "instance_seed": 2,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 34.71385787838706,
+      "median_realized_saving_pct": 33.93862382179951,
+      "q05_realized_saving_pct": 31.72442444079249,
+      "q95_realized_saving_pct": 36.05703242385619,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 33.918004875272366,
+      "unique_directed_edges_by_replicate": [
+        104,
+        104,
+        97
+      ]
+    },
+    {
+      "instance_seed": 2,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 34.71385787838706,
+      "median_realized_saving_pct": 31.986145877177897,
+      "q05_realized_saving_pct": 27.424846302819976,
+      "q95_realized_saving_pct": 36.260567835641886,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 31.906263724852057,
+      "unique_directed_edges_by_replicate": [
+        104,
+        104,
+        97
+      ]
+    },
+    {
+      "instance_seed": 3,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 37.27644809063707,
+      "median_realized_saving_pct": 36.32005683493132,
+      "q05_realized_saving_pct": 34.31877992284118,
+      "q95_realized_saving_pct": 38.248298148581775,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 36.30201253909909,
+      "unique_directed_edges_by_replicate": [
+        105,
+        119,
+        118
+      ]
+    },
+    {
+      "instance_seed": 3,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 37.27644809063707,
+      "median_realized_saving_pct": 34.52869392268085,
+      "q05_realized_saving_pct": 30.327992338761554,
+      "q95_realized_saving_pct": 38.436289016798206,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 34.469395122632655,
+      "unique_directed_edges_by_replicate": [
+        105,
+        119,
+        118
+      ]
+    },
+    {
+      "instance_seed": 4,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 37.58151187886638,
+      "median_realized_saving_pct": 36.476047274753704,
+      "q05_realized_saving_pct": 34.487507242273644,
+      "q95_realized_saving_pct": 38.336402856762064,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 36.45276288349271,
+      "unique_directed_edges_by_replicate": [
+        105,
+        110,
+        113
+      ]
+    },
+    {
+      "instance_seed": 4,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 37.58151187886638,
+      "median_realized_saving_pct": 34.484482001077325,
+      "q05_realized_saving_pct": 30.43627665565324,
+      "q95_realized_saving_pct": 38.29200063961968,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 34.44449939137734,
+      "unique_directed_edges_by_replicate": [
+        105,
+        110,
+        113
+      ]
+    },
+    {
+      "instance_seed": 5,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 35.63952520032503,
+      "median_realized_saving_pct": 34.56348224720168,
+      "q05_realized_saving_pct": 32.72213997679936,
+      "q95_realized_saving_pct": 36.3387304478502,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 34.558224859327176,
+      "unique_directed_edges_by_replicate": [
+        116,
+        98,
+        98
+      ]
+    },
+    {
+      "instance_seed": 5,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 35.63952520032503,
+      "median_realized_saving_pct": 32.564399979371174,
+      "q05_realized_saving_pct": 28.670794493611545,
+      "q95_realized_saving_pct": 36.199031615380484,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 32.51740909521501,
+      "unique_directed_edges_by_replicate": [
+        116,
+        98,
+        98
+      ]
+    },
+    {
+      "instance_seed": 6,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 35.23560786854586,
+      "median_realized_saving_pct": 33.97169863213479,
+      "q05_realized_saving_pct": 31.548821750464374,
+      "q95_realized_saving_pct": 36.203394619239894,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 33.93243641567018,
+      "unique_directed_edges_by_replicate": [
+        116,
+        116,
+        114
+      ]
+    },
+    {
+      "instance_seed": 6,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 35.23560786854586,
+      "median_realized_saving_pct": 31.817638439785767,
+      "q05_realized_saving_pct": 26.88917560719664,
+      "q95_realized_saving_pct": 36.2452199499636,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 31.726282308850564,
+      "unique_directed_edges_by_replicate": [
+        116,
+        116,
+        114
+      ]
+    },
+    {
+      "instance_seed": 7,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 37.23205373409319,
+      "median_realized_saving_pct": 36.12323790418955,
+      "q05_realized_saving_pct": 34.1914440956047,
+      "q95_realized_saving_pct": 37.96600098968732,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 36.11264527450581,
+      "unique_directed_edges_by_replicate": [
+        114,
+        109,
+        110
+      ]
+    },
+    {
+      "instance_seed": 7,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 37.23205373409319,
+      "median_realized_saving_pct": 34.017905118696504,
+      "q05_realized_saving_pct": 30.002635049538462,
+      "q95_realized_saving_pct": 37.805225322294056,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 33.97973727751859,
+      "unique_directed_edges_by_replicate": [
+        114,
+        109,
+        110
+      ]
+    },
+    {
+      "instance_seed": 8,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 35.237807670661965,
+      "median_realized_saving_pct": 34.0791837096835,
+      "q05_realized_saving_pct": 31.950909960825438,
+      "q95_realized_saving_pct": 36.182968119944256,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 34.06612980049447,
+      "unique_directed_edges_by_replicate": [
+        119,
+        104,
+        117
+      ]
+    },
+    {
+      "instance_seed": 8,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 35.237807670661965,
+      "median_realized_saving_pct": 32.09454100253964,
+      "q05_realized_saving_pct": 27.524610021448,
+      "q95_realized_saving_pct": 36.39711669981663,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 32.063788698774836,
+      "unique_directed_edges_by_replicate": [
+        119,
+        104,
+        117
+      ]
+    },
+    {
+      "instance_seed": 9,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 32.3305734778974,
+      "median_realized_saving_pct": 31.406131107772694,
+      "q05_realized_saving_pct": 28.974983793209066,
+      "q95_realized_saving_pct": 33.753118014993134,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 31.387544176018274,
+      "unique_directed_edges_by_replicate": [
+        121,
+        113,
+        121
+      ]
+    },
+    {
+      "instance_seed": 9,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 32.3305734778974,
+      "median_realized_saving_pct": 29.599941929765265,
+      "q05_realized_saving_pct": 24.607713901864702,
+      "q95_realized_saving_pct": 34.24302671805871,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 29.53770951215977,
+      "unique_directed_edges_by_replicate": [
+        121,
+        113,
+        121
+      ]
+    },
+    {
+      "instance_seed": 10,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 38.430098402041445,
+      "median_realized_saving_pct": 37.42825234296504,
+      "q05_realized_saving_pct": 35.206217188973476,
+      "q95_realized_saving_pct": 39.58392973418749,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 37.41058270839061,
+      "unique_directed_edges_by_replicate": [
+        102,
+        102,
+        102
+      ]
+    },
+    {
+      "instance_seed": 10,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 38.430098402041445,
+      "median_realized_saving_pct": 35.58389561499078,
+      "q05_realized_saving_pct": 31.084295222591216,
+      "q95_realized_saving_pct": 39.80747757553364,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 35.513052623437275,
+      "unique_directed_edges_by_replicate": [
+        102,
+        102,
+        102
+      ]
+    },
+    {
+      "instance_seed": 11,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 35.30350258069255,
+      "median_realized_saving_pct": 34.426027398239285,
+      "q05_realized_saving_pct": 32.424435633117405,
+      "q95_realized_saving_pct": 36.37742820511489,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 34.412173605400696,
+      "unique_directed_edges_by_replicate": [
+        110,
+        109,
+        118
+      ]
+    },
+    {
+      "instance_seed": 11,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 35.30350258069255,
+      "median_realized_saving_pct": 32.69515337569689,
+      "q05_realized_saving_pct": 28.602774130335156,
+      "q95_realized_saving_pct": 36.54400656790241,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 32.663925410919,
+      "unique_directed_edges_by_replicate": [
+        110,
+        109,
+        118
+      ]
+    },
+    {
+      "instance_seed": 12,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 32.28978847281305,
+      "median_realized_saving_pct": 31.563877738545873,
+      "q05_realized_saving_pct": 29.240778559827735,
+      "q95_realized_saving_pct": 33.78689835589357,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 31.548163667875794,
+      "unique_directed_edges_by_replicate": [
+        120,
+        105,
+        105
+      ]
+    },
+    {
+      "instance_seed": 12,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 32.28978847281305,
+      "median_realized_saving_pct": 29.97509217297846,
+      "q05_realized_saving_pct": 25.17375979856981,
+      "q95_realized_saving_pct": 34.23527644350877,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 29.85928624024922,
+      "unique_directed_edges_by_replicate": [
+        120,
+        105,
+        105
+      ]
+    },
+    {
+      "instance_seed": 13,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 37.59224501008089,
+      "median_realized_saving_pct": 36.59737418242493,
+      "q05_realized_saving_pct": 34.17535491000739,
+      "q95_realized_saving_pct": 38.8960751087587,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 36.585792976107584,
+      "unique_directed_edges_by_replicate": [
+        114,
+        115,
+        116
+      ]
+    },
+    {
+      "instance_seed": 13,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 37.59224501008089,
+      "median_realized_saving_pct": 34.72481386030033,
+      "q05_realized_saving_pct": 29.771334343272272,
+      "q95_realized_saving_pct": 39.25985184717923,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 34.647376070110035,
+      "unique_directed_edges_by_replicate": [
+        114,
+        115,
+        116
+      ]
+    },
+    {
+      "instance_seed": 14,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 35.2052371618284,
+      "median_realized_saving_pct": 34.41418278245156,
+      "q05_realized_saving_pct": 31.756787251287307,
+      "q95_realized_saving_pct": 36.87145772218259,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 34.37615693879507,
+      "unique_directed_edges_by_replicate": [
+        111,
+        116,
+        106
+      ]
+    },
+    {
+      "instance_seed": 14,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 35.2052371618284,
+      "median_realized_saving_pct": 32.7388851087063,
+      "q05_realized_saving_pct": 27.21227145648911,
+      "q95_realized_saving_pct": 37.68786992462869,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 32.634884576489895,
+      "unique_directed_edges_by_replicate": [
+        111,
+        116,
+        106
+      ]
+    },
+    {
+      "instance_seed": 15,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 39.310990260808815,
+      "median_realized_saving_pct": 38.27293506969461,
+      "q05_realized_saving_pct": 36.33110147067862,
+      "q95_realized_saving_pct": 40.119372225402586,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 38.24909372342709,
+      "unique_directed_edges_by_replicate": [
+        97,
+        114,
+        98
+      ]
+    },
+    {
+      "instance_seed": 15,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 39.310990260808815,
+      "median_realized_saving_pct": 36.42886611429574,
+      "q05_realized_saving_pct": 32.453426460811436,
+      "q95_realized_saving_pct": 40.15588570888281,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 36.37715232285739,
+      "unique_directed_edges_by_replicate": [
+        97,
+        114,
+        98
+      ]
+    },
+    {
+      "instance_seed": 16,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 31.64410078808778,
+      "median_realized_saving_pct": 30.908471391946588,
+      "q05_realized_saving_pct": 28.58659084902988,
+      "q95_realized_saving_pct": 33.05732545841258,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 30.87915810601777,
+      "unique_directed_edges_by_replicate": [
+        120,
+        121,
+        109
+      ]
+    },
+    {
+      "instance_seed": 16,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 31.64410078808778,
+      "median_realized_saving_pct": 29.151730479114555,
+      "q05_realized_saving_pct": 24.39322374860745,
+      "q95_realized_saving_pct": 33.478059142999506,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 29.069575036970683,
+      "unique_directed_edges_by_replicate": [
+        120,
+        121,
+        109
+      ]
+    },
+    {
+      "instance_seed": 17,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 35.218187778960946,
+      "median_realized_saving_pct": 34.486068305761364,
+      "q05_realized_saving_pct": 32.01259695125405,
+      "q95_realized_saving_pct": 36.82659035845948,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 34.44900850338232,
+      "unique_directed_edges_by_replicate": [
+        109,
+        109,
+        112
+      ]
+    },
+    {
+      "instance_seed": 17,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 35.218187778960946,
+      "median_realized_saving_pct": 32.818084953443204,
+      "q05_realized_saving_pct": 27.80947973626396,
+      "q95_realized_saving_pct": 37.4291856772876,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 32.727308103717284,
+      "unique_directed_edges_by_replicate": [
+        109,
+        109,
+        112
+      ]
+    },
+    {
+      "instance_seed": 18,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 31.37709319694572,
+      "median_realized_saving_pct": 30.36922660096886,
+      "q05_realized_saving_pct": 28.127045638886077,
+      "q95_realized_saving_pct": 32.49527244676332,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 30.357805037612508,
+      "unique_directed_edges_by_replicate": [
+        105,
+        106,
+        105
+      ]
+    },
+    {
+      "instance_seed": 18,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 31.37709319694572,
+      "median_realized_saving_pct": 28.473336891922735,
+      "q05_realized_saving_pct": 23.9351964457809,
+      "q95_realized_saving_pct": 32.59919343125506,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 28.392036772077905,
+      "unique_directed_edges_by_replicate": [
+        105,
+        106,
+        105
+      ]
+    },
+    {
+      "instance_seed": 19,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 29.603231842210956,
+      "median_realized_saving_pct": 28.69868205639436,
+      "q05_realized_saving_pct": 26.28401565909585,
+      "q95_realized_saving_pct": 30.979536641835132,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 28.670661470699404,
+      "unique_directed_edges_by_replicate": [
+        100,
+        114,
+        101
+      ]
+    },
+    {
+      "instance_seed": 19,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 29.603231842210956,
+      "median_realized_saving_pct": 27.036170664908248,
+      "q05_realized_saving_pct": 22.02608981224613,
+      "q95_realized_saving_pct": 31.6544996072141,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 26.974085313265764,
+      "unique_directed_edges_by_replicate": [
+        100,
+        114,
+        101
+      ]
+    },
+    {
+      "instance_seed": 20,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 30.565797384214225,
+      "median_realized_saving_pct": 29.313836974145474,
+      "q05_realized_saving_pct": 26.795563102383905,
+      "q95_realized_saving_pct": 31.65047891232206,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 29.28000767107906,
+      "unique_directed_edges_by_replicate": [
+        112,
+        106,
+        112
+      ]
+    },
+    {
+      "instance_seed": 20,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 30.565797384214225,
+      "median_realized_saving_pct": 27.01125983721606,
+      "q05_realized_saving_pct": 21.988366773592332,
+      "q95_realized_saving_pct": 31.794620821259915,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 26.944551125581732,
+      "unique_directed_edges_by_replicate": [
+        112,
+        106,
+        112
+      ]
+    },
+    {
+      "instance_seed": 21,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 31.83885918258257,
+      "median_realized_saving_pct": 31.42829706528351,
+      "q05_realized_saving_pct": 29.423088309428103,
+      "q95_realized_saving_pct": 33.32468413733772,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 31.41492950991085,
+      "unique_directed_edges_by_replicate": [
+        101,
+        101,
+        118
+      ]
+    },
+    {
+      "instance_seed": 21,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 31.83885918258257,
+      "median_realized_saving_pct": 29.773918201998768,
+      "q05_realized_saving_pct": 25.61474043051283,
+      "q95_realized_saving_pct": 33.63826901810338,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 29.695889641247696,
+      "unique_directed_edges_by_replicate": [
+        101,
+        101,
+        118
+      ]
+    },
+    {
+      "instance_seed": 22,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 33.66209622351784,
+      "median_realized_saving_pct": 32.87174656520264,
+      "q05_realized_saving_pct": 30.7815554671572,
+      "q95_realized_saving_pct": 34.86634479335641,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 32.853691102774896,
+      "unique_directed_edges_by_replicate": [
+        123,
+        108,
+        106
+      ]
+    },
+    {
+      "instance_seed": 22,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 33.66209622351784,
+      "median_realized_saving_pct": 31.363578816620826,
+      "q05_realized_saving_pct": 27.179481588688265,
+      "q95_realized_saving_pct": 35.264219124746326,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 31.309258145138262,
+      "unique_directed_edges_by_replicate": [
+        123,
+        108,
+        106
+      ]
+    },
+    {
+      "instance_seed": 23,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 36.00939996485703,
+      "median_realized_saving_pct": 34.84454232226486,
+      "q05_realized_saving_pct": 32.519086455820776,
+      "q95_realized_saving_pct": 37.10342973246449,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 34.82383107640994,
+      "unique_directed_edges_by_replicate": [
+        107,
+        118,
+        107
+      ]
+    },
+    {
+      "instance_seed": 23,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 36.00939996485703,
+      "median_realized_saving_pct": 32.90243279345391,
+      "q05_realized_saving_pct": 28.125326623463856,
+      "q95_realized_saving_pct": 37.2902668765726,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 32.834594900777354,
+      "unique_directed_edges_by_replicate": [
+        107,
+        118,
+        107
+      ]
+    },
+    {
+      "instance_seed": 24,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 34.17016666310047,
+      "median_realized_saving_pct": 33.10261575237702,
+      "q05_realized_saving_pct": 31.018393931281135,
+      "q95_realized_saving_pct": 35.105015584479126,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 33.098487730642724,
+      "unique_directed_edges_by_replicate": [
+        108,
+        105,
+        121
+      ]
+    },
+    {
+      "instance_seed": 24,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 34.17016666310047,
+      "median_realized_saving_pct": 31.127129817612293,
+      "q05_realized_saving_pct": 26.90452931106267,
+      "q95_realized_saving_pct": 35.12972630264841,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 31.069654190194026,
+      "unique_directed_edges_by_replicate": [
+        108,
+        105,
+        121
+      ]
+    },
+    {
+      "instance_seed": 25,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 34.45570982101944,
+      "median_realized_saving_pct": 33.97626560509021,
+      "q05_realized_saving_pct": 31.83715442889775,
+      "q95_realized_saving_pct": 35.995112038331044,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 33.963451837700795,
+      "unique_directed_edges_by_replicate": [
+        121,
+        111,
+        111
+      ]
+    },
+    {
+      "instance_seed": 25,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 34.45570982101944,
+      "median_realized_saving_pct": 32.641278883028306,
+      "q05_realized_saving_pct": 28.459893861468522,
+      "q95_realized_saving_pct": 36.62184224856642,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 32.601921235341344,
+      "unique_directed_edges_by_replicate": [
+        121,
+        111,
+        111
+      ]
+    },
+    {
+      "instance_seed": 26,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 35.797998722815215,
+      "median_realized_saving_pct": 35.02139457031248,
+      "q05_realized_saving_pct": 33.0022705553979,
+      "q95_realized_saving_pct": 36.96737181042499,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 35.01020542797138,
+      "unique_directed_edges_by_replicate": [
+        112,
+        111,
+        109
+      ]
+    },
+    {
+      "instance_seed": 26,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 35.797998722815215,
+      "median_realized_saving_pct": 33.22145158440222,
+      "q05_realized_saving_pct": 29.005665348918583,
+      "q95_realized_saving_pct": 37.11941090475258,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 33.13828231000319,
+      "unique_directed_edges_by_replicate": [
+        112,
+        111,
+        109
+      ]
+    },
+    {
+      "instance_seed": 27,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 35.48414400005532,
+      "median_realized_saving_pct": 34.64796468127047,
+      "q05_realized_saving_pct": 32.45078168575301,
+      "q95_realized_saving_pct": 36.76132042790165,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 34.634110596821245,
+      "unique_directed_edges_by_replicate": [
+        120,
+        120,
+        107
+      ]
+    },
+    {
+      "instance_seed": 27,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 35.48414400005532,
+      "median_realized_saving_pct": 32.841081490963774,
+      "q05_realized_saving_pct": 28.515502923732193,
+      "q95_realized_saving_pct": 36.997021786862845,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 32.81958928970263,
+      "unique_directed_edges_by_replicate": [
+        120,
+        120,
+        107
+      ]
+    },
+    {
+      "instance_seed": 28,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 31.441665683332516,
+      "median_realized_saving_pct": 30.650834073737165,
+      "q05_realized_saving_pct": 28.398676598697097,
+      "q95_realized_saving_pct": 32.832384035679546,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 30.639019172430388,
+      "unique_directed_edges_by_replicate": [
+        117,
+        100,
+        115
+      ]
+    },
+    {
+      "instance_seed": 28,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 31.441665683332516,
+      "median_realized_saving_pct": 28.833154149870282,
+      "q05_realized_saving_pct": 24.198147691677967,
+      "q95_realized_saving_pct": 33.067553280703905,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 28.77359094353246,
+      "unique_directed_edges_by_replicate": [
+        117,
+        100,
+        115
+      ]
+    },
+    {
+      "instance_seed": 29,
+      "cv": 0.1,
+      "nominal_all_seed_saving_pct": 32.326368816462,
+      "median_realized_saving_pct": 31.34437965115636,
+      "q05_realized_saving_pct": 29.09603887019498,
+      "q95_realized_saving_pct": 33.49578615136798,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 31.319618969956128,
+      "unique_directed_edges_by_replicate": [
+        97,
+        118,
+        120
+      ]
+    },
+    {
+      "instance_seed": 29,
+      "cv": 0.2,
+      "nominal_all_seed_saving_pct": 32.326368816462,
+      "median_realized_saving_pct": 29.38287074166895,
+      "q05_realized_saving_pct": 24.74083023739173,
+      "q95_realized_saving_pct": 33.74752155726534,
+      "probability_realized_saving_positive": 1.0,
+      "mean_realized_saving_pct": 29.32701411003314,
+      "unique_directed_edges_by_replicate": [
+        97,
+        118,
+        120
+      ]
+    }
+  ]
+}

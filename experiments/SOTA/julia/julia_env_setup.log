@@ -1,0 +1,226 @@
+  Installing known registries into `~/.julia`
+     Cloning git-repo `https://github.com/chkwon/TSPDrone.jl`
+    Updating registry at `~/.julia/registries/General.toml`
+   Resolving package versions...
+   Installed Match ────────────── v1.2.0
+   Installed JSON ─────────────── v1.7.1
+   Installed PrecompileTools ──── v1.2.1
+   Installed OrderedCollections ─ v2.0.1
+   Installed Parsers ──────────── v2.8.7
+   Installed PyCall ───────────── v1.96.4
+   Installed Conda ────────────── v1.10.3
+   Installed Preferences ──────── v1.5.2
+   Installed VersionParsing ───── v1.3.0
+   Installed DataStructures ───── v0.19.6
+   Installed MacroTools ───────── v0.5.16
+   Installed StructUtils ──────── v2.8.5
+   Installed Concorde ─────────── v0.2.0
+   Installed TSPLIB ───────────── v0.1.2
+    Updating `~/research/truck-drone-routing/experiments/SOTA/julia/Project.toml`
+  [ec3913bb] + TSPDrone v0.2.1 `https://github.com/chkwon/TSPDrone.jl#f42d27c`
+    Updating `~/research/truck-drone-routing/experiments/SOTA/julia/Manifest.toml`
+  [df6a336b] + Concorde v0.2.0
+  [8f4d0f93] + Conda v1.10.3
+  [864edb3b] + DataStructures v0.19.6
+  [682c06a0] + JSON v1.7.1
+  [1914dd2f] + MacroTools v0.5.16
+⌅ [7eb4fadd] + Match v1.2.0
+  [bac558e1] + OrderedCollections v2.0.1
+⌅ [69de0a69] + Parsers v2.8.7
+⌅ [aea7be01] + PrecompileTools v1.2.1
+  [21216c6a] + Preferences v1.5.2
+  [438e738f] + PyCall v1.96.4
+  [ec057cc2] + StructUtils v2.8.5
+  [ec3913bb] + TSPDrone v0.2.1 `https://github.com/chkwon/TSPDrone.jl#f42d27c`
+  [b1c258e7] + TSPLIB v0.1.2
+  [81def892] + VersionParsing v1.3.0
+  [0dad84c5] + ArgTools v1.1.1
+  [56f22d72] + Artifacts
+  [2a0f44e3] + Base64
+  [ade2ca70] + Dates
+  [f43a241f] + Downloads v1.6.0
+  [7b1f6079] + FileWatching
+  [b77e0a4c] + InteractiveUtils
+  [b27032c2] + LibCURL v0.6.4
+  [76f85450] + LibGit2
+  [8f399da3] + Libdl
+  [37e2e46d] + LinearAlgebra
+  [56ddb016] + Logging
+  [d6f4376e] + Markdown
+  [ca575930] + NetworkOptions v1.2.0
+  [44cfe95a] + Pkg v1.10.0
+  [de0858da] + Printf
+  [3fa0cd96] + REPL
+  [9a3f8284] + Random
+  [ea8e919c] + SHA v0.7.0
+  [9e88b42a] + Serialization
+  [6462fe0b] + Sockets
+  [2f01184e] + SparseArrays v1.10.0
+  [10745b16] + Statistics v1.10.0
+  [fa267f1f] + TOML v1.0.3
+  [a4e569a6] + Tar v1.10.0
+  [8dfed614] + Test
+  [cf7118a7] + UUIDs
+  [4ec0a83e] + Unicode
+  [e66e0078] + CompilerSupportLibraries_jll v1.1.1+0
+  [deac9b47] + LibCURL_jll v8.4.0+0
+  [e37daf67] + LibGit2_jll v1.6.4+0
+  [29816b5a] + LibSSH2_jll v1.11.0+1
+  [c8ffd9c3] + MbedTLS_jll v2.28.2+1
+  [14a3606d] + MozillaCACerts_jll v2023.1.10
+  [4536629a] + OpenBLAS_jll v0.3.23+4
+  [bea87d4a] + SuiteSparse_jll v7.2.1+1
+  [83775a58] + Zlib_jll v1.2.13+1
+  [8e850b90] + libblastrampoline_jll v5.8.0+1
+  [8e850ede] + nghttp2_jll v1.52.0+1
+  [3f19e933] + p7zip_jll v17.4.0+2
+        Info Packages marked with ⌅ have new versions available but compatibility constraints restrict them from upgrading. To see why use `status --outdated -m`
+    Building Conda ───→ `~/.julia/scratchspaces/44cfe95a-1eb2-52ea-b672-e2afdf69b78f/8f06b0cfa4c514c7b9546756dbae91fcfbc92dc9/build.log`
+    Building PyCall ──→ `~/.julia/scratchspaces/44cfe95a-1eb2-52ea-b672-e2afdf69b78f/9816a3826b0ebf49ab4926e2b18842ad8b5c8f04/build.log`
+    Building Concorde → `~/.julia/scratchspaces/44cfe95a-1eb2-52ea-b672-e2afdf69b78f/f53ef7294ba9c15d24e43c08becb80a8f0fd51ff/build.log`
+Precompiling project...
+  ✓ VersionParsing
+  ✓ StructUtils
+  ✓ CompilerSupportLibraries_jll
+  ✓ OrderedCollections
+  ✓ Match
+  ✓ Preferences
+  ✓ Statistics
+  ✓ MacroTools
+  ✓ PrecompileTools
+  ✓ DataStructures
+  ✓ TSPLIB
+  ✓ Concorde
+  ✓ Parsers
+  ✓ JSON
+  ✓ Conda
+  ✓ PyCall
+  ✓ TSPDrone
+  17 dependencies successfully precompiled in 67 seconds. 4 already precompiled.
+     Cloning git-repo `https://github.com/Sasanm88/TSPDroneHGATAC.jl`
+   Resolving package versions...
+   Installed DataAPI ───────────── v1.16.0
+   Installed LogExpFunctions ───── v1.0.1
+   Installed DelimitedFiles ────── v1.9.1
+   Installed StatsAPI ──────────── v1.8.0
+   Installed AliasTables ───────── v1.1.3
+   Installed IrrationalConstants ─ v0.2.6
+   Installed Shuffle ───────────── v0.1.1
+   Installed PtrArrays ─────────── v1.4.0
+   Installed Distances ─────────── v0.10.12
+   Installed LKH ───────────────── v0.1.1
+   Installed StatsBase ─────────── v0.34.13
+   Installed Missings ──────────── v1.2.0
+   Installed DocStringExtensions ─ v0.9.5
+   Installed SortingAlgorithms ─── v1.2.3
+    Updating `~/research/truck-drone-routing/experiments/SOTA/julia/Project.toml`
+  [bebbd67e] + TSPDroneHGATAC v0.1.0 `https://github.com/Sasanm88/TSPDroneHGATAC.jl#8f1f345`
+    Updating `~/research/truck-drone-routing/experiments/SOTA/julia/Manifest.toml`
+  [66dad0bd] + AliasTables v1.1.3
+  [9a962f9c] + DataAPI v1.16.0
+  [8bb1440f] + DelimitedFiles v1.9.1
+  [b4f34e82] + Distances v0.10.12
+  [ffbed154] + DocStringExtensions v0.9.5
+  [92d709cd] + IrrationalConstants v0.2.6
+  [294deba0] + LKH v0.1.1
+  [2ab3a3ac] + LogExpFunctions v1.0.1
+  [e1d29d7a] + Missings v1.2.0
+  [43287f4e] + PtrArrays v1.4.0
+  [bf21e494] + Shuffle v0.1.1
+  [a2af1166] + SortingAlgorithms v1.2.3
+  [82ae8749] + StatsAPI v1.8.0
+  [2913bbd2] + StatsBase v0.34.13
+  [bebbd67e] + TSPDroneHGATAC v0.1.0 `https://github.com/Sasanm88/TSPDroneHGATAC.jl#8f1f345`
+  [a63ad114] + Mmap
+    Building LKH → `~/.julia/scratchspaces/44cfe95a-1eb2-52ea-b672-e2afdf69b78f/6156bc397e5aa27c88cda12ecea2baf18d6c5a76/build.log`
+Precompiling project...
+  ✓ Shuffle
+  ✓ PtrArrays
+  ✓ IrrationalConstants
+  ✓ DataAPI
+  ✓ StatsAPI
+  ✓ LKH
+  ✓ DelimitedFiles
+  ✓ DocStringExtensions
+  ✓ SortingAlgorithms
+  ✓ AliasTables
+  ✓ Missings
+  ✓ LogExpFunctions
+  ✓ Distances
+  ✓ Distances → DistancesSparseArraysExt
+  ✓ StatsBase
+  ✓ TSPDroneHGATAC
+  16 dependencies successfully precompiled in 11 seconds. 21 already precompiled.
+Status `~/research/truck-drone-routing/experiments/SOTA/julia/Manifest.toml`
+  [66dad0bd] AliasTables v1.1.3
+  [df6a336b] Concorde v0.2.0
+  [8f4d0f93] Conda v1.10.3
+  [9a962f9c] DataAPI v1.16.0
+  [864edb3b] DataStructures v0.19.6
+  [8bb1440f] DelimitedFiles v1.9.1
+  [b4f34e82] Distances v0.10.12
+  [ffbed154] DocStringExtensions v0.9.5
+  [92d709cd] IrrationalConstants v0.2.6
+  [682c06a0] JSON v1.7.1
+  [294deba0] LKH v0.1.1
+  [2ab3a3ac] LogExpFunctions v1.0.1
+  [1914dd2f] MacroTools v0.5.16
+⌅ [7eb4fadd] Match v1.2.0
+  [e1d29d7a] Missings v1.2.0
+  [bac558e1] OrderedCollections v2.0.1
+⌅ [69de0a69] Parsers v2.8.7
+⌅ [aea7be01] PrecompileTools v1.2.1
+  [21216c6a] Preferences v1.5.2
+  [43287f4e] PtrArrays v1.4.0
+  [438e738f] PyCall v1.96.4
+  [bf21e494] Shuffle v0.1.1
+  [a2af1166] SortingAlgorithms v1.2.3
+  [82ae8749] StatsAPI v1.8.0
+  [2913bbd2] StatsBase v0.34.13
+  [ec057cc2] StructUtils v2.8.5
+  [ec3913bb] TSPDrone v0.2.1 `https://github.com/chkwon/TSPDrone.jl#f42d27c`
+  [bebbd67e] TSPDroneHGATAC v0.1.0 `https://github.com/Sasanm88/TSPDroneHGATAC.jl#8f1f345`
+  [b1c258e7] TSPLIB v0.1.2
+  [81def892] VersionParsing v1.3.0
+  [0dad84c5] ArgTools v1.1.1
+  [56f22d72] Artifacts
+  [2a0f44e3] Base64
+  [ade2ca70] Dates
+  [f43a241f] Downloads v1.6.0
+  [7b1f6079] FileWatching
+  [b77e0a4c] InteractiveUtils
+  [b27032c2] LibCURL v0.6.4
+  [76f85450] LibGit2
+  [8f399da3] Libdl
+  [37e2e46d] LinearAlgebra
+  [56ddb016] Logging
+  [d6f4376e] Markdown
+  [a63ad114] Mmap
+  [ca575930] NetworkOptions v1.2.0
+  [44cfe95a] Pkg v1.10.0
+  [de0858da] Printf
+  [3fa0cd96] REPL
+  [9a3f8284] Random
+  [ea8e919c] SHA v0.7.0
+  [9e88b42a] Serialization
+  [6462fe0b] Sockets
+  [2f01184e] SparseArrays v1.10.0
+  [10745b16] Statistics v1.10.0
+  [fa267f1f] TOML v1.0.3
+  [a4e569a6] Tar v1.10.0
+  [8dfed614] Test
+  [cf7118a7] UUIDs
+  [4ec0a83e] Unicode
+  [e66e0078] CompilerSupportLibraries_jll v1.1.1+0
+  [deac9b47] LibCURL_jll v8.4.0+0
+  [e37daf67] LibGit2_jll v1.6.4+0
+  [29816b5a] LibSSH2_jll v1.11.0+1
+  [c8ffd9c3] MbedTLS_jll v2.28.2+1
+  [14a3606d] MozillaCACerts_jll v2023.1.10
+  [4536629a] OpenBLAS_jll v0.3.23+4
+  [bea87d4a] SuiteSparse_jll v7.2.1+1
+  [83775a58] Zlib_jll v1.2.13+1
+  [8e850b90] libblastrampoline_jll v5.8.0+1
+  [8e850ede] nghttp2_jll v1.52.0+1
+  [3f19e933] p7zip_jll v17.4.0+2
+Info Packages marked with ⌅ have new versions available but compatibility constraints restrict them from upgrading. To see why use `status --outdated -m`

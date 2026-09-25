@@ -1,4 +1,4 @@
-P0 done in 807s -> /home/zyf/research/truck-drone-routing/src/../experiments/P0-robustness/results/p0.json
+P0 done in 807s -> <author-home>/research/truck-drone-routing/src/../experiments/P0-robustness/results/p0.json
 CROSS-SETTING (alpha=2,E=1.0): {
   "uniform_euclidean_n50": {
     "mean_saving": 33.9974725995925,

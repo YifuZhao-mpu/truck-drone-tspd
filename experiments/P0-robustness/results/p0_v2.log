@@ -1,4 +1,8 @@
-P0 done in 987s -> /home/zyf/research/truck-drone-routing/src/../experiments/P0-robustness/results/p0.json
+STALE LOG NOTICE (2026-09-01): despite this filename, the content below is the
+superseded v1 `p0.json` console output (see its first line), not evidence for
+`p0_v2.json`. It is retained only for provenance and is not used in the revision.
+
+P0 done in 987s -> <author-home>/research/truck-drone-routing/src/../experiments/P0-robustness/results/p0.json
 CROSS-SETTING (alpha=2,E=1.0): {
   "uniform_euclidean_n50": {
     "mean_saving": 36.2960675677756,

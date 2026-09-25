@@ -1,4 +1,4 @@
-P1 done in 875s -> /home/zyf/research/truck-drone-routing/src/../experiments/P1-stats/results/p1.json
+P1 done in 875s -> <author-home>/research/truck-drone-routing/src/../experiments/P1-stats/results/p1.json
 {
   "benchmark_gap": {
     "mean": 0.34535700325398777,

@@ -1,4 +1,8 @@
-H2 done in 970s -> /home/zyf/research/truck-drone-routing/src/../experiments/H2-design-space/results/h2.json
+STALE LOG NOTICE (2026-09-01): despite this filename, the content below is the
+superseded v1 `h2.json` console output (see its first line), not evidence for
+`h2_v2.json`. It is retained only for provenance and is not used in the revision.
+
+H2 done in 970s -> <author-home>/research/truck-drone-routing/src/../experiments/H2-design-space/results/h2.json
 SURFACE n=20: {
   "alpha_1.0": {
     "0.5": {

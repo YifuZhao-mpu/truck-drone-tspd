@@ -13,6 +13,8 @@ generic, mode-agnostic 2-opt/Or-opt local move of equal call frequency (fair com
 import math
 import numpy as np
 from problem import (tspd_split, tspd_cost, tspd_cost_multi3, tspd_split_multi3,
+                     tspd_split_friction, tspd_cost_friction,
+                     greedy_split_cost, greedy_split_ops,
                      obj_cost_lambda, decode_lambda)
 
 
@@ -184,7 +186,9 @@ def generic_move(order, cost, split, Dt, rng):
 # ----------------------------- ALNS driver -----------------------------
 def alns(inst, Dt, alpha, endurance=np.inf, max_span=10, iters=8000,
          sortie_aware=True, seed=0, init_order=None, T0_frac=0.05, cool=0.994,
-         m=1, Ddr=None, lam=0.0, cl=1.0, cb=1.0, te=0.3, final_span=None):
+         m=1, Ddr=None, lam=0.0, cl=1.0, cb=1.0, te=0.3, final_span=None,
+         t_service=0.0, t_launch=0.0, t_recover=0.0, eligible=None,
+         decoder="dp"):
     """
     One ALNS for every experiment (v2 consistency fix). The search objective is
     makespan (lam=0) or makespan + lam * total energy (drone Dorling cl/cb + truck te per
@@ -196,8 +200,17 @@ def alns(inst, Dt, alpha, endurance=np.inf, max_span=10, iters=8000,
     objective (scalar search objective of the returned solution).
     Dt=truck distance matrix; Ddr=drone distance matrix (defaults to Dt, Euclidean case).
     """
+    if decoder not in ("dp", "greedy"):
+        raise ValueError("decoder must be 'dp' or 'greedy'")
+    if decoder == "greedy" and (m != 1 or lam > 0.0):
+        raise NotImplementedError("greedy baseline decoding supports only m=1, lam=0")
     if lam > 0.0 and m > 1:
         raise NotImplementedError("lambda-objective is implemented for m=1 only")
+    friction = (t_service != 0.0 or t_launch != 0.0 or t_recover != 0.0
+                or eligible is not None)
+    if friction and (m != 1 or lam > 0.0):
+        raise NotImplementedError(
+            "operational-friction decoding is implemented for m=1, lam=0 only")
     rng = np.random.default_rng(seed)
     n = inst["n"]
     if init_order is None:
@@ -218,11 +231,36 @@ def alns(inst, Dt, alpha, endurance=np.inf, max_span=10, iters=8000,
                                                    max_span, cl, cb, te, Ddr=Ddr)
                 return obj, ops
         else:
-            def cost(o):
-                return tspd_cost([0] + o + [0], Dt, alpha, endurance, max_span, Ddr=Ddr)
+            if decoder == "greedy":
+                if friction:
+                    raise NotImplementedError(
+                        "greedy baseline is not defined for operational friction")
 
-            def split(o):
-                return tspd_split([0] + o + [0], Dt, alpha, endurance, max_span, Ddr=Ddr)
+                def cost(o):
+                    return greedy_split_cost(
+                        [0] + o + [0], Dt, alpha, endurance, max_span, Ddr=Ddr)
+
+                def split(o):
+                    return greedy_split_ops(
+                        [0] + o + [0], Dt, alpha, endurance, max_span, Ddr=Ddr)
+            elif friction:
+                def cost(o):
+                    return tspd_cost_friction(
+                        [0] + o + [0], Dt, alpha, endurance, max_span, Ddr=Ddr,
+                        t_service=t_service, t_launch=t_launch, t_recover=t_recover,
+                        eligible=eligible)
+
+                def split(o):
+                    return tspd_split_friction(
+                        [0] + o + [0], Dt, alpha, endurance, max_span, Ddr=Ddr,
+                        t_service=t_service, t_launch=t_launch, t_recover=t_recover,
+                        eligible=eligible)
+            else:
+                def cost(o):
+                    return tspd_cost([0] + o + [0], Dt, alpha, endurance, max_span, Ddr=Ddr)
+
+                def split(o):
+                    return tspd_split([0] + o + [0], Dt, alpha, endurance, max_span, Ddr=Ddr)
     else:
         def cost(o):
             return tspd_cost_multi3([0] + o + [0], Dt, alpha, m, endurance, max_span, Ddr=Ddr)
@@ -301,6 +339,14 @@ def alns(inst, Dt, alpha, endurance=np.inf, max_span=10, iters=8000,
         if lam > 0.0:
             fin_obj, _ms, _en, fin_ops = decode_lambda(full_best, Dt, alpha, lam, endurance,
                                                        fs, cl, cb, te, Ddr=Ddr)
+        elif decoder == "greedy":
+            _ms, fin_ops = greedy_split_ops(
+                full_best, Dt, alpha, endurance, fs, Ddr=Ddr)
+        elif friction:
+            _ms, fin_ops = tspd_split_friction(
+                full_best, Dt, alpha, endurance, fs, Ddr=Ddr,
+                t_service=t_service, t_launch=t_launch, t_recover=t_recover,
+                eligible=eligible)
         else:
             _ms, fin_ops = tspd_split(full_best, Dt, alpha, endurance, fs, Ddr=Ddr)
     else:
@@ -309,6 +355,15 @@ def alns(inst, Dt, alpha, endurance=np.inf, max_span=10, iters=8000,
     from energy import evaluate_solution
     ev = evaluate_solution(full_best, fin_ops, Dt, Dt if Ddr is None else Ddr, alpha,
                            cl=cl, cb=cb, te=te)
+    if decoder == "greedy":
+        ev["operation_reconstruction_makespan"] = ev["makespan"]
+        ev["makespan"] = float(_ms)
+    if friction:
+        ev["movement_makespan"] = ev["makespan"]
+        ev["makespan"] = float(_ms)
+        ev["operational_friction"] = {
+            "t_service": float(t_service), "t_launch": float(t_launch),
+            "t_recover": float(t_recover)}
     fin_ms = ev["makespan"]
     return {"makespan": fin_ms, "order": full_best, "ops": fin_ops, "eval": ev,
             "objective": fin_ms + lam * ev["e_total"], "search_objective": best_obj}

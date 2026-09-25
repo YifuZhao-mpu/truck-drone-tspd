@@ -1,0 +1,118 @@
+60 instances; orders to decode: 1281 (winners 573)
+{
+ "20": {
+  "n_instances": 30,
+  "n_knees": 30,
+  "orders_decoded_total": 500,
+  "winner_orders_total": 257,
+  "knee_dms_median": 18.73001291724851,
+  "knee_dms_iqr": [
+   15.633536722151042,
+   23.751888733722414
+  ],
+  "knee_de_median": 44.99337324098981,
+  "knee_de_iqr": [
+   36.838846092669144,
+   49.71434633975764
+  ],
+  "reduction_pct": {
+   "5": {
+    "median": 14.169938265472815,
+    "iqr": [
+     11.217996660708643,
+     17.878629681394067
+    ]
+   },
+   "10": {
+    "median": 24.621488844777303,
+    "iqr": [
+     21.341464876338755,
+     28.918981086448433
+    ]
+   },
+   "20": {
+    "median": 38.71171781075137,
+    "iqr": [
+     35.735710917698704,
+     45.4727510739494
+    ]
+   }
+  },
+  "completion_gain_points": {
+   "5": {
+    "median": 0.0,
+    "max": 4.27326624539748,
+    "frac_positive": 0.23333333333333334
+   },
+   "10": {
+    "median": 0.0,
+    "max": 3.471139938702194,
+    "frac_positive": 0.16666666666666666
+   },
+   "20": {
+    "median": 0.0,
+    "max": 2.392983563746988,
+    "frac_positive": 0.2
+   }
+  },
+  "front_points_median": 63.0
+ },
+ "50": {
+  "n_instances": 30,
+  "n_knees": 30,
+  "orders_decoded_total": 781,
+  "winner_orders_total": 316,
+  "knee_dms_median": 18.122697549262146,
+  "knee_dms_iqr": [
+   13.892745093169552,
+   23.41936727471456
+  ],
+  "knee_de_median": 43.10139307031902,
+  "knee_de_iqr": [
+   38.93090808737672,
+   47.11342864653149
+  ],
+  "reduction_pct": {
+   "5": {
+    "median": 17.156610656568677,
+    "iqr": [
+     13.74588217015344,
+     21.557143634591107
+    ]
+   },
+   "10": {
+    "median": 28.908497883620406,
+    "iqr": [
+     23.965659578800395,
+     32.6466902658513
+    ]
+   },
+   "20": {
+    "median": 43.00060541770134,
+    "iqr": [
+     38.40362125303555,
+     47.42811933013866
+    ]
+   }
+  },
+  "completion_gain_points": {
+   "5": {
+    "median": 0.0,
+    "max": 3.6869440748886326,
+    "frac_positive": 0.4
+   },
+   "10": {
+    "median": 0.0,
+    "max": 4.067854603973544,
+    "frac_positive": 0.23333333333333334
+   },
+   "20": {
+    "median": 0.0,
+    "max": 0.7506038548156369,
+    "frac_positive": 0.23333333333333334
+   }
+  },
+  "front_points_median": 255.5
+ }
+}
+done in 56s -> <author-home>/research/truck-drone-routing/src/../experiments/H3-time-energy/results/h3_frontier_v3.json

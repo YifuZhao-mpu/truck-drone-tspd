@@ -111,6 +111,146 @@ def _split_cost(seq, Dtr, Ddr, alpha, endurance, max_span):
 
 
 @njit(cache=True, fastmath=True)
+def _split_full_friction(seq, Dtr, Ddr, alpha, endurance, max_span,
+                         t_service, t_launch, t_recover, eligible):
+    """Single-drone split with customer service, launch/recovery time and eligibility.
+
+    Customer service is charged once, on the vehicle serving that customer.  Service
+    at a truck-served rendezvous is included on the truck side of the synchronized
+    operation; depot service is zero.  Endurance remains a flight-distance limit.
+    """
+    all_eligible = True
+    for q in range(1, eligible.shape[0]):
+        if eligible[q] == 0:
+            all_eligible = False
+            break
+    if t_service == 0.0 and t_launch == 0.0 and t_recover == 0.0 and all_eligible:
+        return _split_full(seq, Dtr, Ddr, alpha, endurance, max_span)
+
+    L = seq.shape[0] - 1
+    INF = 1e18
+    pref = np.zeros(L + 1)
+    for a in range(L):
+        pref[a + 1] = pref[a] + Dtr[seq[a], seq[a + 1]]
+    best = np.full(L + 1, INF)
+    best[0] = 0.0
+    argi = np.full(L + 1, -1, dtype=np.int64)
+    argj = np.full(L + 1, -1, dtype=np.int64)
+    for k in range(1, L + 1):
+        lo = k - max_span
+        if lo < 0:
+            lo = 0
+        for i in range(lo, k):
+            bi = best[i]
+            if bi >= INF:
+                continue
+            if k == i + 1:
+                c = Dtr[seq[i], seq[k]]
+                if seq[k] != 0:
+                    c += t_service
+                jj = -1
+            else:
+                full_path = pref[k] - pref[i]
+                si = seq[i]
+                sk = seq[k]
+                c = INF
+                jj = -1
+                for j in range(i + 1, k):
+                    sj = seq[j]
+                    if eligible[sj] == 0:
+                        continue
+                    fl = Ddr[si, sj] + Ddr[sj, sk]
+                    if fl > endurance:
+                        continue
+                    drone_side = fl / alpha + t_service
+                    truck_side = (full_path - Dtr[seq[j - 1], seq[j]]
+                                  - Dtr[seq[j], seq[j + 1]]
+                                  + Dtr[seq[j - 1], seq[j + 1]])
+                    served = 0
+                    for p in range(i + 1, k + 1):
+                        if p != j and seq[p] != 0:
+                            served += 1
+                    truck_side += served * t_service
+                    sync = truck_side if truck_side > drone_side else drone_side
+                    cc = t_launch + sync + t_recover
+                    if cc < c:
+                        c = cc
+                        jj = j
+                if c >= INF:
+                    continue
+            v = bi + c
+            if v < best[k]:
+                best[k] = v
+                argi[k] = i
+                argj[k] = jj
+    return best[L], argi, argj
+
+
+@njit(cache=True, fastmath=True)
+def _split_cost_friction(seq, Dtr, Ddr, alpha, endurance, max_span,
+                         t_service, t_launch, t_recover, eligible):
+    """Makespan-only fast path corresponding exactly to ``_split_full_friction``."""
+    all_eligible = True
+    for q in range(1, eligible.shape[0]):
+        if eligible[q] == 0:
+            all_eligible = False
+            break
+    if t_service == 0.0 and t_launch == 0.0 and t_recover == 0.0 and all_eligible:
+        return _split_cost(seq, Dtr, Ddr, alpha, endurance, max_span)
+
+    L = seq.shape[0] - 1
+    INF = 1e18
+    pref = np.zeros(L + 1)
+    for a in range(L):
+        pref[a + 1] = pref[a] + Dtr[seq[a], seq[a + 1]]
+    best = np.full(L + 1, INF)
+    best[0] = 0.0
+    for k in range(1, L + 1):
+        lo = k - max_span
+        if lo < 0:
+            lo = 0
+        for i in range(lo, k):
+            bi = best[i]
+            if bi >= INF:
+                continue
+            if k == i + 1:
+                c = Dtr[seq[i], seq[k]]
+                if seq[k] != 0:
+                    c += t_service
+            else:
+                full_path = pref[k] - pref[i]
+                si = seq[i]
+                sk = seq[k]
+                c = INF
+                for j in range(i + 1, k):
+                    sj = seq[j]
+                    if eligible[sj] == 0:
+                        continue
+                    fl = Ddr[si, sj] + Ddr[sj, sk]
+                    if fl > endurance:
+                        continue
+                    drone_side = fl / alpha + t_service
+                    truck_side = (full_path - Dtr[seq[j - 1], seq[j]]
+                                  - Dtr[seq[j], seq[j + 1]]
+                                  + Dtr[seq[j - 1], seq[j + 1]])
+                    served = 0
+                    for p in range(i + 1, k + 1):
+                        if p != j and seq[p] != 0:
+                            served += 1
+                    truck_side += served * t_service
+                    sync = truck_side if truck_side > drone_side else drone_side
+                    cc = t_launch + sync + t_recover
+                    if cc < c:
+                        c = cc
+                if c >= INF:
+                    continue
+            v = bi + c
+            if v < best[k]:
+                best[k] = v
+    return best[L]
+
+
+@njit(cache=True, fastmath=True)
 def _split_obj(seq, Dtr, Ddr, alpha, endurance, max_span, lam, cl, cb, te, want_full):
     """DP minimizing scalarized makespan + lam*energy. Sortie energy = cl*t_out + cb*(t_out+t_back)
     (Dorling affine: loaded outbound, empty return); truck energy = te*distance. Dtr=truck, Ddr=drone.
@@ -506,6 +646,51 @@ def tspd_split(order, Dtr, alpha, endurance=np.inf, max_span=None, Ddr=None):
     return ms, ops
 
 
+def _eligibility_array(eligible, n_nodes):
+    """Normalize a customer eligibility mask for the JIT friction kernels."""
+    if eligible is None:
+        a = np.ones(n_nodes, dtype=np.uint8)
+    else:
+        a = np.ascontiguousarray(eligible, dtype=np.uint8)
+        if a.shape != (n_nodes,):
+            raise ValueError(f"eligible must have shape ({n_nodes},), got {a.shape}")
+    a = a.copy()
+    a[0] = 1  # the depot is never a drone customer; keep the sentinel admissible
+    return a
+
+
+def tspd_split_friction(order, Dtr, alpha, endurance=np.inf, max_span=None, Ddr=None,
+                        t_service=0.0, t_launch=0.0, t_recover=0.0, eligible=None):
+    """Fixed-order single-drone split with operational-friction parameters.
+
+    ``t_service`` is paid once by the vehicle serving each customer. Launch and
+    recovery durations are paid per sortie around the synchronized parallel interval.
+    Endurance is still measured as flight distance, not elapsed sortie time.
+    """
+    seq = np.ascontiguousarray(order, dtype=np.int64)
+    L = seq.shape[0] - 1
+    if max_span is None:
+        max_span = L
+    if Ddr is None:
+        Ddr = Dtr
+    endu = 1e18 if not np.isfinite(endurance) else float(endurance)
+    elig = _eligibility_array(eligible, Dtr.shape[0])
+    ms, argi, argj = _split_full_friction(
+        seq, Dtr, Ddr, float(alpha), endu, int(max_span), float(t_service),
+        float(t_launch), float(t_recover), elig)
+    ops = []
+    k = L
+    while k > 0:
+        i = int(argi[k])
+        if i < 0:
+            raise RuntimeError("friction split failed to reconstruct a feasible path")
+        j = int(argj[k])
+        ops.append(("truck", i, k) if j < 0 else ("sortie", i, j, k))
+        k = i
+    ops.reverse()
+    return ms, ops
+
+
 def tspd_cost(order, Dtr, alpha, endurance=np.inf, max_span=None, Ddr=None):
     """Makespan-only (fast path; no ops reconstruction). Dtr=truck, Ddr=drone (default Dtr)."""
     L = len(order) - 1
@@ -516,6 +701,102 @@ def tspd_cost(order, Dtr, alpha, endurance=np.inf, max_span=None, Ddr=None):
     seq = np.ascontiguousarray(order, dtype=np.int64)
     endu = 1e18 if not np.isfinite(endurance) else float(endurance)
     return _split_cost(seq, Dtr, Ddr, float(alpha), endu, int(max_span))
+
+
+def tspd_cost_friction(order, Dtr, alpha, endurance=np.inf, max_span=None, Ddr=None,
+                       t_service=0.0, t_launch=0.0, t_recover=0.0, eligible=None):
+    """Makespan-only fast path for :func:`tspd_split_friction`."""
+    seq = np.ascontiguousarray(order, dtype=np.int64)
+    L = seq.shape[0] - 1
+    if max_span is None:
+        max_span = L
+    if Ddr is None:
+        Ddr = Dtr
+    endu = 1e18 if not np.isfinite(endurance) else float(endurance)
+    elig = _eligibility_array(eligible, Dtr.shape[0])
+    return _split_cost_friction(
+        seq, Dtr, Ddr, float(alpha), endu, int(max_span), float(t_service),
+        float(t_launch), float(t_recover), elig)
+
+
+@njit(cache=True, fastmath=True)
+def _greedy_split(seq, Dtr, Ddr, alpha, endurance, max_span, argk, argj):
+    """Myopic split used only as a deliberately weaker decoder baseline."""
+    L = seq.shape[0] - 1
+    i = 0
+    total = 0.0
+    t = 0
+    while i < L:
+        best_rate = Dtr[seq[i], seq[i + 1]]
+        best_c = best_rate
+        best_k = i + 1
+        best_j = -1
+        hi = min(i + max_span, L)
+        legsum = Dtr[seq[i], seq[i + 1]]
+        for k in range(i + 2, hi + 1):
+            legsum += Dtr[seq[k - 1], seq[k]]
+            si = seq[i]
+            sk = seq[k]
+            for j in range(i + 1, k):
+                sj = seq[j]
+                flight = Ddr[si, sj] + Ddr[sj, sk]
+                if flight > endurance:
+                    continue
+                drone = flight / alpha
+                truck = (legsum - Dtr[seq[j - 1], seq[j]]
+                         - Dtr[seq[j], seq[j + 1]]
+                         + Dtr[seq[j - 1], seq[j + 1]])
+                cost = truck if truck > drone else drone
+                rate = cost / (k - i)
+                if rate < best_rate:
+                    best_rate = rate
+                    best_c = cost
+                    best_k = k
+                    best_j = j
+        total += best_c
+        argk[t] = best_k
+        argj[t] = best_j
+        t += 1
+        i = best_k
+    argk[t] = -1
+    return total
+
+
+def greedy_split_cost(order, Dtr, alpha, endurance=np.inf, max_span=None, Ddr=None):
+    """Makespan-only path for the myopic decoder baseline."""
+    seq = np.ascontiguousarray(order, dtype=np.int64)
+    if Ddr is None:
+        Ddr = Dtr
+    if max_span is None:
+        max_span = len(order) - 1
+    argk = np.full(len(order), -1, dtype=np.int64)
+    argj = np.full(len(order), -1, dtype=np.int64)
+    endu = 1e18 if not np.isfinite(endurance) else float(endurance)
+    return _greedy_split(seq, Dtr, Ddr, float(alpha), endu, int(max_span), argk, argj)
+
+
+def greedy_split_ops(order, Dtr, alpha, endurance=np.inf, max_span=None, Ddr=None):
+    """Myopic baseline decode with explicit operations."""
+    seq = np.ascontiguousarray(order, dtype=np.int64)
+    if Ddr is None:
+        Ddr = Dtr
+    if max_span is None:
+        max_span = len(order) - 1
+    argk = np.full(len(order), -1, dtype=np.int64)
+    argj = np.full(len(order), -1, dtype=np.int64)
+    endu = 1e18 if not np.isfinite(endurance) else float(endurance)
+    makespan = _greedy_split(
+        seq, Dtr, Ddr, float(alpha), endu, int(max_span), argk, argj)
+    ops = []
+    i = 0
+    t = 0
+    while argk[t] >= 0:
+        k = int(argk[t])
+        j = int(argj[t])
+        ops.append(("truck", i, k) if j < 0 else ("sortie", i, j, k))
+        i = k
+        t += 1
+    return makespan, ops
 
 
 def tspd_cost_multi(order, Dtr, alpha, m, endurance=np.inf, max_span=6, Ddr=None):

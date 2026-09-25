@@ -6,7 +6,9 @@ frontier all use makespan + lambda * E_total, where E_total = drone energy (Dorl
 affine, loaded out / empty return) + truck energy (te per unit distance). The solver is
 the SAME validated adaptive sortie-aware ALNS as every other experiment (alns(lam=...)),
 not the v1 simplified search. Per instance we store makespan, truck distance, drone
-energy, truck energy, total energy and the route for EVERY (lambda, seed) point, filter
+energy, truck energy, total energy and the route for every (lambda, instance-index)
+point after retaining only the best of three solver seeds (the discarded replicates
+are a v2 archive limitation corrected by run_h3_v3.py), filter
 to the non-dominated set per instance, and compute per-instance knees with uncertainty.
 Sensitivity: payload cl in {0.5, 1, 2} and truck coefficient te in {0.15, 0.3, 0.6}
 on a 15-instance subset (disclosed).

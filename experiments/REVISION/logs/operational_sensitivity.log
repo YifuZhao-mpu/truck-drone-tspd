@@ -1,0 +1,247 @@
+240 operational-sensitivity jobs, 3 retained replicates each
+{
+ "base": {
+  "best_of_3_mean_saving_pct": 34.58457818986141,
+  "best_of_3_ci95": [
+   33.65062064750577,
+   35.498873583247814
+  ],
+  "all_seed_mean_saving_pct": 34.28243942513515,
+  "all_seed_ci95": [
+   33.34707383131781,
+   35.19790218891943
+  ],
+  "worst_seed_mean_saving_pct": 33.9222310406812,
+  "selection_gain_points": 0.30213876472625856,
+  "median_replicate_spread_pct": 0.6627612448325333,
+  "hybrid_makespan_change_vs_base": {
+   "absolute_mean": 0.0,
+   "absolute_ci95": [
+    0.0,
+    0.0
+   ],
+   "relative_mean_pct": 0.0,
+   "relative_ci95": [
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "service_0.25tau": {
+  "best_of_3_mean_saving_pct": 36.47222700892157,
+  "best_of_3_ci95": [
+   35.68343780751499,
+   37.239667868995774
+  ],
+  "all_seed_mean_saving_pct": 36.19063240637264,
+  "all_seed_ci95": [
+   35.404198006012074,
+   36.95686290132886
+  ],
+  "worst_seed_mean_saving_pct": 35.88950557192433,
+  "selection_gain_points": 0.2815946025489282,
+  "median_replicate_spread_pct": 0.679516404094374,
+  "hybrid_makespan_change_vs_base": {
+   "absolute_mean": 0.7039573035878439,
+   "absolute_ci95": [
+    0.6946938997190587,
+    0.7132865566288584
+   ],
+   "relative_mean_pct": 18.761042422723154,
+   "relative_ci95": [
+    18.481870557912647,
+    19.034770381751386
+   ]
+  }
+ },
+ "service_0.50tau": {
+  "best_of_3_mean_saving_pct": 37.950242540338785,
+  "best_of_3_ci95": [
+   37.33912252614988,
+   38.52866027478614
+  ],
+  "all_seed_mean_saving_pct": 37.74386128830972,
+  "all_seed_ci95": [
+   37.14498011793441,
+   38.33221015785373
+  ],
+  "worst_seed_mean_saving_pct": 37.53082261148779,
+  "selection_gain_points": 0.2063812520290611,
+  "median_replicate_spread_pct": 0.546308297006614,
+  "hybrid_makespan_change_vs_base": {
+   "absolute_mean": 1.3881210720899555,
+   "absolute_ci95": [
+    1.3741776847070626,
+    1.4016987050008116
+   ],
+   "relative_mean_pct": 37.019458192582455,
+   "relative_ci95": [
+    36.30640419164424,
+    37.6901159884257
+   ]
+  }
+ },
+ "handling_0.25tau_each": {
+  "best_of_3_mean_saving_pct": 20.119539640258854,
+  "best_of_3_ci95": [
+   18.935034851476036,
+   21.28418819227535
+  ],
+  "all_seed_mean_saving_pct": 19.853693013074487,
+  "all_seed_ci95": [
+   18.6722861748227,
+   21.02962386853508
+  ],
+  "worst_seed_mean_saving_pct": 19.50311468789031,
+  "selection_gain_points": 0.26584662718436647,
+  "median_replicate_spread_pct": 0.5536625203630208,
+  "hybrid_makespan_change_vs_base": {
+   "absolute_mean": 0.8241821584999756,
+   "absolute_ci95": [
+    0.8001221902079688,
+    0.8481643084669453
+   ],
+   "relative_mean_pct": 21.970868290154485,
+   "relative_ci95": [
+    21.299864291316855,
+    22.62925029031393
+   ]
+  }
+ },
+ "handling_0.50tau_each": {
+  "best_of_3_mean_saving_pct": 9.297397562075195,
+  "best_of_3_ci95": [
+   8.162167813026192,
+   10.425401264673127
+  ],
+  "all_seed_mean_saving_pct": 8.975564569987501,
+  "all_seed_ci95": [
+   7.868108320754281,
+   10.112243288098202
+  ],
+  "worst_seed_mean_saving_pct": 8.703908612580294,
+  "selection_gain_points": 0.32183299208769434,
+  "median_replicate_spread_pct": 0.3186747800687838,
+  "hybrid_makespan_change_vs_base": {
+   "absolute_mean": 1.4468912220969967,
+   "absolute_ci95": [
+    1.410651864954428,
+    1.4807752194949928
+   ],
+   "relative_mean_pct": 38.57340432881717,
+   "relative_ci95": [
+    37.47585179762681,
+    39.59477814211513
+   ]
+  }
+ },
+ "joint_0.25tau": {
+  "best_of_3_mean_saving_pct": 22.93336341937962,
+  "best_of_3_ci95": [
+   21.95405608109426,
+   23.924251304878005
+  ],
+  "all_seed_mean_saving_pct": 22.72161966228568,
+  "all_seed_ci95": [
+   21.716224892200202,
+   23.73993248405119
+  ],
+  "worst_seed_mean_saving_pct": 22.466180054595455,
+  "selection_gain_points": 0.21174375709394155,
+  "median_replicate_spread_pct": 0.4142760020874352,
+  "hybrid_makespan_change_vs_base": {
+   "absolute_mean": 1.6445272378486941,
+   "absolute_ci95": [
+    1.6202170166371643,
+    1.6685302725774507
+   ],
+   "relative_mean_pct": 43.832109393392216,
+   "relative_ci95": [
+    43.03510985477681,
+    44.61199490714558
+   ]
+  }
+ },
+ "eligible_75pct": {
+  "best_of_3_mean_saving_pct": 30.879175544950144,
+  "best_of_3_ci95": [
+   29.630581231440594,
+   32.13308989153042
+  ],
+  "all_seed_mean_saving_pct": 30.693963785920744,
+  "all_seed_ci95": [
+   29.413647406145472,
+   31.978617600132395
+  ],
+  "worst_seed_mean_saving_pct": 30.47871917391888,
+  "selection_gain_points": 0.1852117590294,
+  "median_replicate_spread_pct": 0.4576297395363752,
+  "hybrid_makespan_change_vs_base": {
+   "absolute_mean": 0.20571805278939764,
+   "absolute_ci95": [
+    0.15566628876400418,
+    0.26098980338863925
+   ],
+   "relative_mean_pct": 5.476477647848935,
+   "relative_ci95": [
+    4.143471647823638,
+    6.922105406755286
+   ]
+  }
+ },
+ "eligible_50pct": {
+  "best_of_3_mean_saving_pct": 23.356613743928115,
+  "best_of_3_ci95": [
+   22.12970166930174,
+   24.56066663481869
+  ],
+  "all_seed_mean_saving_pct": 23.09082486091287,
+  "all_seed_ci95": [
+   21.85849871035426,
+   24.294855972609376
+  ],
+  "worst_seed_mean_saving_pct": 22.814279914173518,
+  "selection_gain_points": 0.2657888830152437,
+  "median_replicate_spread_pct": 0.42376628188776866,
+  "hybrid_makespan_change_vs_base": {
+   "absolute_mean": 0.6406366536913167,
+   "absolute_ci95": [
+    0.5757157434970339,
+    0.7068867306675478
+   ],
+   "relative_mean_pct": 17.122522846613315,
+   "relative_ci95": [
+    15.335624855798397,
+    18.97796364055716
+   ]
+  }
+ },
+ "reserve_20pct": {
+  "best_of_3_mean_saving_pct": 34.4002816313518,
+  "best_of_3_ci95": [
+   33.42571175816381,
+   35.383728872682354
+  ],
+  "all_seed_mean_saving_pct": 34.06675446209853,
+  "all_seed_ci95": [
+   33.06277118234093,
+   35.04127893811481
+  ],
+  "worst_seed_mean_saving_pct": 33.69896475712474,
+  "selection_gain_points": 0.33352716925327286,
+  "median_replicate_spread_pct": 0.8933775940026553,
+  "hybrid_makespan_change_vs_base": {
+   "absolute_mean": 0.011968365024082805,
+   "absolute_ci95": [
+    0.0003892144902057995,
+    0.02308615177952609
+   ],
+   "relative_mean_pct": 0.32539957616842513,
+   "relative_ci95": [
+    0.023415670956861163,
+    0.6175462813883495
+   ]
+  }
+ }
+}
+done in 2310.7s -> <author-home>/research/truck-drone-routing/src/../experiments/P0-robustness/results/operational_sensitivity_v3.json

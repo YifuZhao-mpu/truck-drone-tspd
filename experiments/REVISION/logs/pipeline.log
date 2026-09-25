@@ -1,0 +1,13 @@
+2026-09-02T01:34:37-04:00 WAITING for chain pid 11433 and run_decoder_strength.py
+2026-09-02T13:16:39-04:00 chain and §E processes have exited
+2026-09-02T13:16:39-04:00 START check_rerun_reproduction
+2026-09-02T13:16:41-04:00 DONE check_rerun_reproduction
+2026-09-02T13:16:41-04:00 START heldout_comparators
+2026-09-02T15:05:55-04:00 DONE heldout_comparators
+2026-09-02T15:05:55-04:00 START density_control
+2026-09-02T18:33:12-04:00 DONE density_control
+2026-09-02T18:33:12-04:00 START operational_sensitivity
+2026-09-02T19:11:43-04:00 DONE operational_sensitivity
+2026-09-02T19:11:43-04:00 START realnet_capability
+2026-09-02T19:46:07-04:00 DONE realnet_capability
+2026-09-02T19:46:07-04:00 PIPELINE COMPLETE

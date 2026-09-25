@@ -1,4 +1,33 @@
-Status `/tmp/claude-1000/-home-zyf-research-truck-drone-routing/f14f3651-e9ac-409d-b601-f80c4aeb4da9/scratchpad/jdepot/environments/v1.10/Project.toml`
-  [ec3913bb] TSPDrone v0.2.1 `../../../TSPDrone.jl`
-  [bebbd67e] TSPDroneHGATAC v0.1.0 `../../../TSPDroneHGATAC.jl`
-1.10.4
+Julia comparator environment -- restored 2026-09-02 for the major-revision §F pre-gate
+(the original 2026-07-18 depot lived in a since-cleaned scratchpad; this replaces it).
+
+julia      : 1.10.4, official linux-x86_64 tarball, sha256 verified against
+             julialang-s3 checksums (079f6175...adff1), installed at
+             ~/.local/opt/julia-1.10.4/bin/julia (outside the repo, outside any scratchpad)
+project    : experiments/SOTA/julia/Project.toml + Manifest.toml (COMMITTED); activate with
+             julia --project=experiments/SOTA/julia ; Pkg.instantiate() rebuilds it
+depot      : default ~/.julia (packages cloned by URL + pinned rev, recorded in the Manifest)
+TSPDrone.jl        v0.2.1  https://github.com/chkwon/TSPDrone.jl#f42d27c
+                   git-tree-sha1 4f92399c6819738c1e63c8533a89a7e498264848  (DPS / TSP-ep-all)
+TSPDroneHGATAC.jl  v0.1.0  https://github.com/Sasanm88/TSPDroneHGATAC.jl#8f1f345
+                   git-tree-sha1 93b1577c57575cc0313165b2a7fa2e30744a576b  (HGA-TAC)
+setup log  : experiments/SOTA/julia/julia_env_setup.log (both packages precompiled OK)
+
+Smoke test (experiments/SOTA/julia/smoke_test.jl, JULIA_NUM_THREADS=1, machine under full
+§A load, so timings are indicative only):
+instance 1 DPS cost 1.5653379000460281 (8.44 s; reseeded repeat 1.5653379000460281) HGA-TAC cost 1.5653379000460281 (31.12 s)
+instance 2 DPS cost 1.868021602001383 (0.02 s; reseeded repeat 1.868021602001383) HGA-TAC cost 1.8680216020013831 (1.46 s)
+threads 1 julia 1.10.4
+Both solvers run, agree on the two 10-customer instances, and DPS reproduces under
+Random.seed!. Note: both packages export solve_tspd -- calls must be module-qualified.
+The §F full run itself has NOT been executed yet (it must wait for a quiet machine because
+its budgets are wall-clock).
+
+§F pipeline smoke (2026-09-02, src/run_heldout_comparators.py --smoke): two held-out n=20
+instances, one 140-s restart loop per solver, all three solvers completed
+(heldout_comparators_v3.smoke.json). A first attempt crashed one DPS loop: Concorde (used
+by TSPDrone.jl) writes temporary .tsp/.sol files into the working directory with names
+drawn from Julia's global RNG, so two processes seeded identically collide on the same
+file names. Fixed by giving every comparator process its own working directory
+(experiments/SOTA/results/heldout_tmp/<job>/, gitignored). The full §F run has NOT been
+executed yet.
