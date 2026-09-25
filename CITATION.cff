@@ -44,7 +44,7 @@ license: MIT
 repository-code: "https://github.com/YifuZhao-mpu/truck-drone-tspd"
 preferred-citation:
   type: article
-  title: "When truck-paired drones save time and energy: capability interactions and a power-ratio boundary in last-mile delivery"
+  title: "Drone capabilities jointly shape truck–drone time savings, but energy is saved only above a route-specific truck-to-drone energy ratio"
   authors:
     - family-names: "Zhao"
       given-names: "Yifu"

@@ -1,4 +1,4 @@
-# When truck-paired drones save time and energy — capability interactions and a power-ratio boundary (TSP-D)
+# Drone capabilities jointly shape truck–drone time savings, but energy is saved only above a route-specific truck-to-drone energy ratio (TSP-D)
 
 A reproducible computational study of the **min-makespan Travelling Salesman Problem
 with Drone (TSP-D)**, using one open solver to map (i) how speed, endurance and fleet
